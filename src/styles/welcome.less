@@ -1,0 +1,282 @@
+@welcome-layout-width: 920px;
+@welcome-layout-gutter: 40px;
+
+@welcome-block-marginV: 42px;
+@welcome-separator-borderColor: #cacaca;
+
+@welcome-heading-color: @brand-primary;
+@welcome-text-color: #545454;
+@welcome-font-size: 16px;
+@welcome-action-color-base: hsl(hue(@brand-primary), 8%, 35%);
+@welcome-action-color-primary: @welcome-heading-color;
+@welcome-link-color: @welcome-action-color-primary;
+
+@welcome-actionBlock-borderColor: #b0b0b0;
+@welcome-actionBlock-gutter: 14px;
+@welcome-actionBlock-highlight: hsl(hue(@welcome-heading-color), 100%, 97%);
+
+.Welcome {
+  color: @welcome-text-color;
+}
+
+// Main layout
+
+.WelcomeColumnLayout {
+  display: flex;
+  justify-content: center;
+  padding-left: (@welcome-layout-gutter / 2);
+  padding-right: (@welcome-layout-gutter / 2);
+}
+
+.WelcomeColumn {
+  width: 100%;
+  max-width: @welcome-layout-width;
+  padding-right: @welcome-layout-gutter / 2;
+  padding-left: @welcome-layout-gutter / 2;
+}
+
+// Main type
+
+.WelcomeHeading1 {
+  font-size: 36px;
+  font-weight: 500;
+  color: @welcome-heading-color;
+  margin: 0;
+}
+
+.WelcomeHeading2 {
+  font-size: 26px;
+  font-weight: 500;
+  color: @welcome-heading-color;
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+.WelcomeHeading3 {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+.WelcomeText {
+  font-size: @welcome-font-size;
+  line-height: 1.42;
+}
+p.WelcomeText {
+  margin: 20px 0;
+}
+
+// Main header
+
+.WelcomeScreenHeader {
+  // margin: 38px 0;
+  margin-top: 24px;
+  margin-bottom: 38px;
+}
+
+.WelcomeScreenHeader-title {
+}
+
+.WelcomeScreenHeader-divider {
+  margin-top: 24px;
+  width: 24px;
+  border-bottom: 4px solid @welcome-heading-color;
+}
+
+// Content Blocks
+
+.WelcomeScreenBlock {
+  margin: @welcome-block-marginV 0;
+}
+
+.WelcomeScreenSeparator {
+  border-bottom: 1px solid @welcome-separator-borderColor;
+}
+
+.ShadedInfoBlock {
+  display: block;
+  padding: 22px 24px;
+  background-color: #ededed;
+  border-radius: 5px;
+}
+
+// Action Buttons & Links
+
+.WelcomeScreenActionButton {
+  display: inline-flex;
+  padding: 1.25em 1.5em;
+  background-color: @welcome-action-color-base;
+  font-size: @welcome-font-size;
+  font-family: inherit;
+  font-weight: 500;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  &,
+  &:hover,
+  &:focus {
+    color: white;
+    text-decoration: none;
+  }
+  &:hover,
+  &:focus {
+    background-color: lighten(@welcome-action-color-base, 10%);
+  }
+}
+.WelcomeScreenActionButton--primary {
+  background-color: @welcome-action-color-primary;
+  &:hover,
+  &:focus {
+    background-color: lighten(@welcome-action-color-primary, 10%);
+  }
+}
+
+.WelcomeScreenLink {
+  font-weight: 600;
+  color: @welcome-link-color;
+  &:hover,
+  &:focus {
+    color: lighten(@welcome-link-color, 10%);
+  }
+}
+
+// Action blocks
+
+.WelcomeScreenActionBlocks {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.WelcomeScreenActionBlock {
+  display: flex;
+  padding: 32px 0;
+  border-top: 1px solid @welcome-actionBlock-borderColor;
+  cursor: pointer;
+  &:last-child {
+    border-bottom: 1px solid @welcome-actionBlock-borderColor;
+  }
+  &:hover,
+  &:focus {
+    background-color: @welcome-actionBlock-highlight;
+  }
+  transition: 50ms all linear;
+}
+
+.WelcomeScreenActionBlock-splitH {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  > * {
+    padding-left: @welcome-actionBlock-gutter;
+  }
+  > *:last-child {
+    padding-right: @welcome-actionBlock-gutter;
+  }
+}
+
+.WelcomeScreenActionBlock-titleBlock,
+.WelcomeScreenActionBlock-title {
+  flex: 1;
+}
+.WelcomeScreenActionBlock-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  &:not(:last-child) {
+    margin-bottom: 0.25em;
+  }
+}
+
+.WelcomeScreenActionBlock-chevron {
+  flex: 0 0 auto;
+  box-sizing: content-box;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  > svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+// Top Nav
+
+.WelcomeScreenTopNav-back-chevron {
+  transform: scaleX(-1);
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  margin-right: 0.25em;
+}
+
+.WelcomeScreenTopNav-back-chevron > svg,
+.Breadcrumb-chevron > svg {
+  height: 100%;
+  width: 100%;
+}
+
+.WelcomeScreenTopNav-back {
+  display: inline-flex;
+  align-items: center;
+}
+
+.WelcomeScreenTopNav-label {
+  text-transform: uppercase;
+  /* background: rgba(0,0,0,.125); */
+  /* padding: 0.25em; */
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.WelcomeScreenTopNav-back {
+  border-radius: 3px;
+  padding: 0.5em 0.75em;
+  background: rgba(0, 0, 0, 0.075);
+  font-size: 14px;
+  color: @welcome-link-color;
+  cursor: pointer;
+}
+
+.WelcomeScreenTopNav {
+  padding-top: 8px;
+}
+
+// Breadcrumb
+
+.Breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.Breadcrumb-chevron {
+  height: 0.75em;
+  width: 0.75em;
+  line-height: 0.75em;
+  margin: 0 0.25em;
+}
+
+.WelcomeScreenTopNav .Breadcrumb {
+  margin-top: 6px;
+}
+
+.WelcomeScreenHeader .Breadcrumb {
+  margin-bottom: 0.25em;
+}
+
+.Breadcrumb {
+  color: @welcome-link-color;
+}
+.Breadcrumb-link {
+  &,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: @welcome-link-color;
+  }
+}
+
+.WelcomeOption:not(:last-child) {
+  margin-bottom: 14px;
+}

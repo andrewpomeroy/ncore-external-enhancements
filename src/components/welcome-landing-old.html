@@ -1,0 +1,169 @@
+<div class="WelcomeScreenHeader">
+  <h1 class="WelcomeHeading1" ng-if="!$ctrl.welcomeContext.sites.length">
+    Getting Started
+  </h1>
+  <h1 class="WelcomeHeading1" ng-if="$ctrl.welcomeContext.sites.length">
+    Welcome Back, {{$ctrl.welcomeContext.user.displayName}}
+  </h1>
+  <!-- <div class="WelcomeScreenHeader-divider"></div> -->
+</div>
+<div class="WelcomeScreenBlock" ng-if="!$ctrl.welcomeContext.sites.length">
+  <div class="ShadedInfoBlock">
+    <h3 class="WelcomeHeading3">
+      If you received a letter with a verification code
+    </h3>
+    <p class="WelcomeText">
+      Enter in the code you received to have your user account associated with
+      the facility, person or organization you represent.
+    </p>
+    <button class="WelcomeScreenActionButton">
+      Enter Verification Code
+    </button>
+  </div>
+</div>
+<div class="WelcomeScreenBlock">
+  <h2 class="WelcomeHeading2">
+    Let's get your account set up. To start, tell us what you'd like to do
+    first.
+  </h2>
+</div>
+<div class="WelcomeScreenBlock">
+  <ul class="WelcomeScreenActionBlocks">
+    <li class="WelcomeScreenActionBlock">
+      <!-- <button class="WelcomeScreenActionBlock-clickableFill"> -->
+      <div class="WelcomeScreenActionBlock-splitH">
+        <div class="WelcomeScreenActionBlock-title">
+          Submit compliance reports
+        </div>
+        <div class="WelcomeScreenActionBlock-chevron">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 16 16"
+            enable-background="new 0 0 16 16"
+            xml:space="preserve"
+          >
+            <polyline
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              points="6,2 12,8 6,14 "
+            />
+          </svg>
+        </div>
+      </div>
+      <!-- </button> -->
+    </li>
+    <li class="WelcomeScreenActionBlock">
+      <!-- <button class="WelcomeScreenActionBlock-clickableFill"> -->
+      <div class="WelcomeScreenActionBlock-splitH">
+        <div class="WelcomeScreenActionBlock-title">
+          Apply for, extend, or renew a permit
+        </div>
+        <div class="WelcomeScreenActionBlock-chevron">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 16 16"
+            enable-background="new 0 0 16 16"
+            xml:space="preserve"
+          >
+            <polyline
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              points="6,2 12,8 6,14 "
+            />
+          </svg>
+        </div>
+      </div>
+      <!-- </button> -->
+    </li>
+    <li class="WelcomeScreenActionBlock">
+      <!-- <button class="WelcomeScreenActionBlock-clickableFill"> -->
+      <div class="WelcomeScreenActionBlock-splitH">
+        <div class="WelcomeScreenActionBlock-title">
+          Submit a service request
+        </div>
+        <div class="WelcomeScreenActionBlock-chevron">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 16 16"
+            enable-background="new 0 0 16 16"
+            xml:space="preserve"
+          >
+            <polyline
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              points="6,2 12,8 6,14 "
+            />
+          </svg>
+        </div>
+      </div>
+      <!-- </button> -->
+    </li>
+    <li class="WelcomeScreenActionBlock">
+      <!-- <button class="WelcomeScreenActionBlock-clickableFill"> -->
+      <div class="WelcomeScreenActionBlock-splitH">
+        <div class="WelcomeScreenActionBlock-titleBlock">
+          <div class="WelcomeScreenActionBlock-title">
+            All other options
+          </div>
+          <div class="WelcomeText">
+            View past compliance/permitting history, and more
+          </div>
+        </div>
+        <div class="WelcomeScreenActionBlock-chevron">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 16 16"
+            enable-background="new 0 0 16 16"
+            xml:space="preserve"
+          >
+            <polyline
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              points="6,2 12,8 6,14 "
+            />
+          </svg>
+        </div>
+      </div>
+      <!-- </button> -->
+    </li>
+  </ul>
+</div>
+<div class="WelcomeScreenBlock">
+  <h2 class="WelcomeHeading4">
+    Need Help?
+  </h2>
+  <p class="WelcomeText">
+    If you're not sure how to proceed from this step, please
+    <a href="#" class="WelcomeScreenLink"
+      >Contact {{$ctrl.welcomeContext.agency.displayName}}.</a
+    >
+  </p>
+  <p class="WelcomeText">
+    Online help is available on any page within nVIRO; simply tap the Help icon
+    in the top-right navigation bar area:
+  </p>
+</div>

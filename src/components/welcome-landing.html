@@ -1,0 +1,105 @@
+<div class="WelcomeScreenHeader">
+  <h1 class="WelcomeHeading1" ng-if="!$ctrl.welcomeContext.sites.length">
+    Getting Started
+  </h1>
+  <h1 class="WelcomeHeading1" ng-if="$ctrl.welcomeContext.sites.length">
+    Home
+  </h1>
+</div>
+<div class="WelcomeScreenBlock" ng-if="!$ctrl.welcomeContext.sites.length">
+  <!-- <p class="WelcomeText">
+    {{$ctrl.welcomeContext.themeConfig.appName}} is a one-stop portal for all
+    activities related to {{$ctrl.welcomeContext.themeConfig.clientNameShort}}
+    permitting and compliance.
+  </p> -->
+  <p
+    class="WelcomeText"
+    ng-bind="$ctrl.welcomeContext.themeConfig.externalLanding.appDescription"
+  ></p>
+</div>
+<div class="WelcomeScreenBlock" ng-if="!$ctrl.welcomeContext.sites.length">
+  <welcome-verification-code-info class="ShadedInfoBlock">
+  </welcome-verification-code-info>
+</div>
+<!-- <div class="WelcomeScreenBlock" ng-if="!$ctrl.welcomeContext.sites.length">
+  <h2 class="WelcomeHeading2">
+    Let's get your account set up. To start, tell us what you'd like to do
+    first.
+  </h2>
+</div> -->
+<div ng-if="$ctrl.welcomeContext.sites.length">
+  <div class="WelcomeScreenBlock">
+    <h2 class="WelcomeHeading2">
+      Finding and Submitting Applications and Requests
+    </h2>
+    <p class="WelcomeText">
+      Begin by browsing the available application, service request and report
+      forms. Once the desired form is located, you can fill it out, submit it,
+      and track it here.
+    </p>
+    <button
+      class="WelcomeScreenActionButton WelcomeScreenActionButton--primary"
+    >
+      Browse Forms
+    </button>
+  </div>
+  <div class="WelcomeScreenSeparator"></div>
+</div>
+
+<div class="WelcomeScreenBlock">
+  <h2 class="WelcomeHeading2">
+    Add a {{$ctrl.welcomeContext.multipleSiteCategories ?
+    'Site/Person/Organization' : 'Site'}} to your account
+  </h2>
+  <p class="WelcomeText" ng-if="!$ctrl.welcomeContext.sites.length">
+    In order to get started, you'll need to link your account to a regulated
+    business entity {{$ctrl.welcomeContext.multipleSiteCategories ? '(a site,
+    person or organization)' : '(a site, project or facility)'}}, or create one
+    if it's not yet in the {{$ctrl.welcomeContext.themeConfig.appName}} system.
+  </p>
+  <p class="WelcomeText" ng-if="$ctrl.welcomeContext.sites.length === 1">
+    Your account currently only has access to one
+    {{$ctrl.welcomeContext.sites[0].siteCategoryDescription.toLowerCase()}},
+    <a
+      class="WelcomeScreenLink"
+      ui-sref="site.dashboard({site: $ctrl.welcomeContext.sites[0].siteId})"
+      >{{$ctrl.welcomeContext.sites[0].siteName}}</a
+    >. In order to perform work on any other
+    {{$ctrl.welcomeContext.multipleSiteCategories ? 'site, person or
+    organization' : 'site, project or facility'}} you'll have to connect it to
+    your user account.
+  </p>
+  <p class="WelcomeText" ng-if="$ctrl.welcomeContext.sites.length > 1">
+    Your account currently has access to {{$ctrl.welcomeContext.sites.length}}
+    {{$ctrl.welcomeContext.multipleSiteCategories ?
+    'sites/persons/organizations' : 'sites'}}. In order to perform work on
+    additional {{$ctrl.welcomeContext.multipleSiteCategories ? 'business
+    entities' : 'sites'}}, you'll have to connect them to your user account.
+  </p>
+  <a
+    class="WelcomeScreenActionButton"
+    ng-class="{'WelcomeScreenActionButton--primary': !$ctrl.welcomeContext.sites.length}"
+    ui-sref=".add"
+  >
+    Add a {{$ctrl.welcomeContext.multipleSiteCategories ?
+    'Site/Person/Organization' : 'Site'}}
+  </a>
+</div>
+
+<div class="WelcomeScreenSeparator"></div>
+
+<div class="WelcomeScreenBlock">
+  <h3 class="WelcomeHeading3">
+    Need Help?
+  </h3>
+  <p class="WelcomeText">
+    Use the Help link icon in the top right corner of any page to view
+    screen-specific help. If you still need assistance,
+    <a
+      class="WelcomeScreenLink"
+      ng-href="{{$ctrl.welcomeContext.themeConfig.contactUrl}}"
+      >Contact Us</a
+    >
+    for additional support options.
+  </p>
+</div>

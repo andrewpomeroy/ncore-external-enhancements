@@ -1,0 +1,93 @@
+<div class="WelcomeScreenTopNav">
+  <div class="WelcomeScreenTopNav-back" tabindex="0" ui-sref="^">
+    <div class="WelcomeScreenTopNav-back-chevron">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 16 16"
+        enable-background="new 0 0 16 16"
+        xml:space="preserve"
+      >
+        <polyline
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-miterlimit="10"
+          points="6,2 12,8 6,14 "
+        />
+      </svg>
+    </div>
+    <div class="WelcomeScreenTopNav-label">
+      Back
+    </div>
+  </div>
+</div>
+
+<div class="WelcomeScreenHeader">
+  <div class="Breadcrumb">
+    <a class="Breadcrumb-link" ui-sref="^.^">Welcome</a>
+    <a class="Breadcrumb-chevron">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+        <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" points="6,2 12,8 6,14 " />
+      </svg>
+    </a>
+    <a class="Breadcrumb-link" ui-sref="^">Add a {{$ctrl.welcomeContext.multipleSiteCategories ?
+        'site/person/organization' : 'site'}}</a>
+    <a class="Breadcrumb-chevron">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+        <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" points="6,2 12,8 6,14 " />
+      </svg>
+    </a>
+  </div>
+  <h1 class="WelcomeHeading1">
+    Connect an Existing {{$ctrl.welcomeContext.multipleSiteCategories ?
+    'Site/Person/Organization' : 'Site'}}
+  </h1>
+</div>
+
+
+<div class="WelcomeScreenBlock">
+  <div class="WelcomeText">
+    There are several ways to do add an existing
+    {{$ctrl.welcomeContext.multipleSiteCategories ? 'site, person or
+    organization' : 'site'}} to your account. Choose from the following:
+  </div>
+</div>
+<div class="WelcomeScreenBlock">
+  <welcome-verification-code-info></welcome-verification-code-info>
+</div>
+<div class="WelcomeScreenSeparator"></div>
+<div class="WelcomeScreenBlock">
+  <h3 class="WelcomeHeading3">
+    Find your facility on an online map
+  </h3>
+  <p class="WelcomeText">
+    If the entity you're looking to connect is a <strong>facility with a specific address</strong>, you can use our online map to find
+    it and request access.
+  </p>
+  <a ng-href="{{$ctrl.welcomeContext.themeConfig.appSettings.nSiteBaseUrl}}map/help?mode=claimsite" class="WelcomeScreenActionButton">
+    Facility Search
+  </a>
+</div>
+<div class="WelcomeScreenSeparator"></div>
+<div class="WelcomeScreenBlock">
+  <h3 class="WelcomeHeading3">
+    All other cases
+  </h3>
+  <p class="WelcomeText">
+    <ul class="WelcomeOptionsList">
+      <li class="WelcomeOption">
+        If there is someone (an account manager, for example) who has {{$ctrl.welcomeContext.themeConfig.appName}} access to the entity in question, you can ask them
+        to use the Invite User feature to grant your account (<strong>{{$ctrl.welcomeContext.user.email}}</strong>) access to the profile.
+      </li>
+      <li class="WelcomeOption">
+        If that's not an option, please <a class="WelcomeScreenLink" ng-href="{{$ctrl.welcomeContext.themeConfig.contactUrl}}">Contact Us</a> and we can get your account set up.
+      </li>
+    </ul>
+  </p>
+</div>

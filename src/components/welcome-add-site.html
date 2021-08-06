@@ -1,0 +1,142 @@
+<div class="WelcomeScreenTopNav">
+  <div class="WelcomeScreenTopNav-back" tabindex="0" ui-sref="^">
+    <div class="WelcomeScreenTopNav-back-chevron">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 16 16"
+        enable-background="new 0 0 16 16"
+        xml:space="preserve"
+      >
+        <polyline
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-miterlimit="10"
+          points="6,2 12,8 6,14 "
+        />
+      </svg>
+    </div>
+    <div class="WelcomeScreenTopNav-label">
+      Back
+    </div>
+  </div>
+</div>
+<div class="WelcomeScreenHeader">
+  <div class="Breadcrumb">
+    <a class="Breadcrumb-link" ui-sref="^">Welcome</a>
+    <a class="Breadcrumb-chevron">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 16 16"
+        enable-background="new 0 0 16 16"
+        xml:space="preserve"
+      >
+        <polyline
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-miterlimit="10"
+          points="6,2 12,8 6,14 "
+        />
+      </svg>
+    </a>
+  </div>
+  <h1 class="WelcomeHeading1">
+    Add a {{$ctrl.welcomeContext.multipleSiteCategories ?
+    'Site/Person/Organization' : 'Site'}}
+  </h1>
+</div>
+<div class="WelcomeScreenBlock">
+  <h2 class="WelcomeHeading2">
+    What best describes the
+    <strong
+      >{{$ctrl.welcomeContext.multipleSiteCategories ? 'site, person or
+      organization' : 'site, project or facility'}}</strong
+    >
+    you need to work with?
+  </h2>
+  <ul class="WelcomeScreenActionBlocks">
+    <li class="WelcomeScreenActionBlock" ng-click="$ctrl.goToExisting()">
+      <div class="WelcomeScreenActionBlock-splitH">
+        <div class="WelcomeScreenActionBlock-titleBlock">
+          <div class="WelcomeScreenActionBlock-title">
+            It is currently registered with
+            {{$ctrl.welcomeContext.themeConfig.clientNameShort}}
+          </div>
+          <div class="WelcomeText">
+            The {{$ctrl.welcomeContext.multipleSiteCategories ? 'site, person or
+            organization' : 'site'}} has been permitted in the past, is
+            currently permitted, or has ever been required to submit compliance
+            reports to {{$ctrl.welcomeContext.themeConfig.clientNameShort}}
+          </div>
+        </div>
+        <div class="WelcomeScreenActionBlock-chevron">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 16 16"
+            enable-background="new 0 0 16 16"
+            xml:space="preserve"
+          >
+            <polyline
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              points="6,2 12,8 6,14 "
+            />
+          </svg>
+        </div>
+      </div>
+    </li>
+    <li class="WelcomeScreenActionBlock" ng-click="$ctrl.goToNew()">
+      <div class="WelcomeScreenActionBlock-splitH">
+        <div class="WelcomeScreenActionBlock-titleBlock">
+          <div class="WelcomeScreenActionBlock-title">
+            It has not yet been registered with
+            {{$ctrl.welcomeContext.themeConfig.clientNameShort}}
+          </div>
+          <div class="WelcomeText">
+            Complete an application or service request and your
+            {{$ctrl.welcomeContext.multipleSiteCategories ?
+            'site/person/organization' : 'site'}} will be automatically created.
+          </div>
+          <div class="WelcomeText">
+            <em>Choose this option if you're not sure.</em>
+          </div>
+        </div>
+        <div class="WelcomeScreenActionBlock-chevron">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 16 16"
+            enable-background="new 0 0 16 16"
+            xml:space="preserve"
+          >
+            <polyline
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              points="6,2 12,8 6,14 "
+            />
+          </svg>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
