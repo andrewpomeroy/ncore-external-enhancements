@@ -42,25 +42,28 @@ angular.module("app").config(['$stateProvider',
             template: '' +
               '<div class="debug">' +
                 '<label>' +
-                  '<input type="checkbox" ng-model="multipleSiteCategories" />' +
-                  'Multiple Site Categories' +
+                  '<input type="checkbox" ng-model="isInternal" />' +
+                  'Internal User' +
                 '</label>' +
-                '<div>' +
+                '<div ng-if="!isInternal">' +
                   '<label>Site count</label>' +
-                  '<select ng-model="siteCount">' +
-                    '<option value="0" selected>0</option>' +
+                  '<select ng-model="$parent.siteCount">' +
+                    '<option value="0">0</option>' +
                     '<option value="1">1</option>' +
                     '<option value="2">2</option>' +
-                    '<option value="many">Many</option>' +
+                    '<option value="many" selected>Many</option>' +
                   '</select>' +
                 '</div>' +
                 // '<div>' +
-                //   '<label></label>' +
-                //   '<select ng-if="sites.length" ng-model="selectedSite">' + 
-                //     '<option ng-value="" selected>&mdash; None &mdash;</option>' +
-                //     '<option ng-repeat="site in sites" ng-value="site.id">{{site.siteName}}</option>' +
-                //   '</select>' +
+                // '{{selectedSite}}' +
                 // '</div>' +
+                '<div>' +
+                  '<label>Site</label>' +
+                  '<select ng-if="sites.length" ng-model="$parent.selectedSite">' + 
+                    '<option value="">&mdash; None &mdash;</option>' +
+                    '<option ng-repeat="site in sites" ng-value="site">{{site.siteName}}</option>' +
+                  '</select>' +
+                '</div>' +
               '</div>' +
               '<new-form-wizard-context>' +
                 '<welcome-layout>' +

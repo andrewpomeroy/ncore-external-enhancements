@@ -6,7 +6,24 @@ controller.$inject = ['$scope'];
 
 function controller($scope) {
 
+  $scope.$watch('isInternal', function (newValue, oldValue) {
+    // console.log(newValue, oldValue);
+    if (newValue) {
+      $scope.selectedSite = null;
+      $scope.siteCount = "many"
+      // $scope.siteCount = null;
+    }
+    else {
+      $scope.selectedSite = _selectedSite;
+      $scope.siteCount = _siteCount;
+    }
+  })
+  
   $scope.$watch('siteCount', function (newValue, oldValue) {
+    console.log(newValue, oldValue);
+    if (newValue !== null) {
+      _siteCount = newValue;
+    }
     if (newValue && parseInt(newValue).toString() === newValue) {
       $scope.sites = sites.slice(0, parseInt(newValue));
     }
@@ -21,9 +38,18 @@ function controller($scope) {
     }
   })
 
+  $scope.$watch('selectedSite', function (newValue, oldValue) {
+    if (newValue !== null) {
+      _selectedSite = newValue;
+    }
+  })
+  
   $scope.agencyName = "egle";
-  $scope.siteCount = "0";
-  // $scope.username = "Bill Rensmith";
+  $scope.siteCount = "many";
+  $scope.selectedSite = null;
+  var _siteCount = $scope.siteCount;
+  var _selectedSite = $scope.selectedSite;
+
   $scope.user = user;
   $scope.themeConfig = themeConfig;
   $scope.multipleSiteCategories = false;
