@@ -6,8 +6,8 @@ import '@uirouter/angularjs';
 import WelcomeController from './welcome-controller.js';
 
 import welcomeLayout from "./components/welcome-layout";
-import welcomeContext from "./components/welcome-context";
-import welcomeLanding from './components/welcome-landing';
+import newFormWizardContext from "./components/new-form-wizard-context";
+import newFormWizard from './components/new-form-wizard';
 import welcomeAddSite from './components/welcome-add-site';
 import welcomeAddExisting from './components/welcome-add-existing';
 import welcomeVerificationCodeInfo from './components/welcome-verification-code-info';
@@ -62,14 +62,14 @@ angular.module("app").config(['$stateProvider',
                 //   '</select>' +
                 // '</div>' +
               '</div>' +
-              '<welcome-context sites="sites" user="user" theme-config="themeConfig" multiple-site-categories="multipleSiteCategories">' +
+              '<new-form-wizard-context>' +
                 '<welcome-layout>' +
                 '</welcome-layout>' +
-              '</welcome-context>',
+              '</new-form-wizard-context>',
             controller: 'WelcomeController',
           },
           'welcomeContent@welcome': {
-            template: '<welcome-landing></welcome-landing>'
+            template: '<new-form-wizard></new-form-wizard>'
           }
 
         },
@@ -101,8 +101,8 @@ angular.module("app").config(['$stateProvider',
 ]);
 
 angular.module("app").component("welcomeLayout", welcomeLayout);
-angular.module("app").component("welcomeContext", welcomeContext);
-angular.module("app").component("welcomeLanding", welcomeLanding);
+angular.module("app").component("newFormWizardContext", newFormWizardContext);
+angular.module("app").component("newFormWizard", newFormWizard);
 angular.module("app").component("welcomeAddSite", welcomeAddSite);
 angular.module("app").component("welcomeAddExisting", welcomeAddExisting);
 angular.module("app").component("welcomeVerificationCodeInfo", welcomeVerificationCodeInfo);

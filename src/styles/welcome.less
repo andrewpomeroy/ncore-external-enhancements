@@ -16,7 +16,13 @@
 @welcome-actionBlock-highlight: hsl(hue(@welcome-heading-color), 100%, 97%);
 
 .Welcome {
+  padding-top: 12px;
+  padding-bottom: @welcome-block-marginV;
   color: @welcome-text-color;
+}
+.Welcome--scroll {
+  height: 100%;
+  overflow-y: auto;
 }
 
 // Main layout
@@ -103,7 +109,8 @@ p.WelcomeText {
 
 // Action Buttons & Links
 
-.WelcomeScreenActionButton {
+.WelcomeScreenActionButton,
+.SubscriptionScreenActionButton {
   display: inline-flex;
   padding: 1.25em 1.5em;
   background-color: @welcome-action-color-base;
@@ -119,16 +126,25 @@ p.WelcomeText {
     color: white;
     text-decoration: none;
   }
-  &:hover,
-  &:focus {
-    background-color: lighten(@welcome-action-color-base, 10%);
+
+  &:not([disabled="disabled"]) {
+    &:hover,
+    &:focus {
+      background-color: lighten(@welcome-action-color-base, 10%);
+    }
+  }
+  &[disabled="disabled"] {
+    opacity: 0.4;
   }
 }
-.WelcomeScreenActionButton--primary {
+.WelcomeScreenActionButton--primary,
+.SubscriptionScreenActionButton--primary {
   background-color: @welcome-action-color-primary;
-  &:hover,
-  &:focus {
-    background-color: lighten(@welcome-action-color-primary, 10%);
+  &:not([disabled="disabled"]) {
+    &:hover,
+    &:focus {
+      background-color: lighten(@welcome-action-color-primary, 10%);
+    }
   }
 }
 
@@ -162,6 +178,10 @@ p.WelcomeText {
   }
   transition: 50ms all linear;
 }
+.WelcomeScreenActionBlock--small {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
 
 .WelcomeScreenActionBlock-splitH {
   display: flex;
@@ -181,11 +201,16 @@ p.WelcomeText {
 }
 .WelcomeScreenActionBlock-title {
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 500;
   margin: 0;
-  &:not(:last-child) {
-    margin-bottom: 0.25em;
+  + .WelcomeText {
+    margin-top: 0.25em;
   }
+}
+
+.WelcomeScreenActionBlock-subtitle {
+  font-size: 16px;
+  opacity: 0.75;
 }
 
 .WelcomeScreenActionBlock-chevron {
@@ -197,6 +222,20 @@ p.WelcomeText {
   > svg {
     height: 100%;
     width: 100%;
+  }
+}
+
+.WelcomeScreenActionBlock--small {
+  .WelcomeScreenActionBlock-title {
+    font-size: 19px;
+  }
+  .WelcomeScreenActionBlock-subtitle {
+    font-size: 14px;
+  }
+  .WelcomeScreenActionBlock-chevron {
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
   }
 }
 
@@ -242,8 +281,33 @@ p.WelcomeText {
   padding-top: 8px;
 }
 
-// Breadcrumb
+.SubscriptionConfirmationScreen {
+  table {
+    background-color: transparent;
+  }
 
+  td:first-of-type {
+    width: 35%;
+    vertical-align: top;
+  }
+
+  td + td {
+    padding-left: 10px;
+    font-weight: 500;
+    width: 65%;
+  }
+
+  .WelcomeHeading3 {
+    margin-top: 35px;
+  }
+
+  .WelcomeHeading2,
+  WelcomeHeading3 {
+    font-weight: 500;
+  }
+}
+
+// Breadcrumb
 .Breadcrumb {
   display: flex;
   align-items: center;

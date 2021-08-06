@@ -5,15 +5,15 @@ export default {
   bindings: {},
   template: template,
   require: {
-    "welcomeContext": "^",
+    "newFormWizardContext": "^",
   },
   controller: controller
 };
 
 function controller () {
   this.$postLink = function() {
-    if (this.welcomeContext) {
-      console.log(this.welcomeContext);
+    if (this.newFormWizardContext) {
+      console.log(this.newFormWizardContext);
     }
   }
 }
