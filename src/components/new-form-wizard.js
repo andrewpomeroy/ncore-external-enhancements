@@ -1,23 +1,25 @@
 import angular from "angular";
 import template from "./new-form-wizard.html";
+import getSelectSiteDialog from "../dialogs/select-site-dialog";
 
 export default {
   bindings: {},
   template: template,
   require: {
-    "newFormWizardContext": "^",
+    newFormWizardContext: "^",
   },
-  controller: Controller
+  controller: Controller,
 };
 
-function Controller () {
+Controller.$inject = ["$scope", "$mdDialog"];
+function Controller($scope, $mdDialog) {
   const $ctrl = this;
 
-  $ctrl.select = (state) => {
-    $ctrl.currentState = state;
-  }
+  $ctrl.selectSite = (event) => {
+    getSelectSiteDialog($scope, $mdDialog)(event);
+  };
 
   $ctrl.$onInit = () => {
-    $ctrl.currentState = 'landing';
-  }
+    $ctrl.currentState = "landing";
+  };
 }
