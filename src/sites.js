@@ -1,3 +1,5 @@
+import permits from "./permits";
+
 const sites = [
     {
         id: "-2190724337913349216",
@@ -6,6 +8,16 @@ const sites = [
         siteName: "Dow Chem-Midland Battery Park",
         siteNumber: "117771",
         userId: "8285620348187282972",
+        permits: permits,
+    },
+    {
+        id: "-3464576457",
+        siteCategoryDescription: "Site",
+        siteId: "-23465346457",
+        siteName: "Site with NO PERMITS",
+        siteNumber: "11777444",
+        userId: "8285620348187282972",
+        permits: [],
     },
     {
         id: "-5166687662054990675",
@@ -14,6 +26,7 @@ const sites = [
         siteName: "WB-3971-1: Gaylanta Lake: Professional Lake Management",
         siteNumber: "WB-3971-1",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "3010815515534464633",
@@ -22,6 +35,7 @@ const sites = [
         siteName: "Windsor Solutions, Inc.",
         siteNumber: "AA45C1B3-0B6C",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "-2092113969318566428",
@@ -30,6 +44,7 @@ const sites = [
         siteName: "My second lighthouse",
         siteNumber: "C3C85D49-7FC1",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "-6292949795786528881",
@@ -38,6 +53,7 @@ const sites = [
         siteName: "Mich Sugar Co-Carrollton",
         siteNumber: "19954",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "-951038906568459521",
@@ -46,6 +62,7 @@ const sites = [
         siteName: "Mt Pleasant WWTP",
         siteNumber: "13593",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "-5989558446888159612",
@@ -54,6 +71,7 @@ const sites = [
         siteName: "Lighthouse On The Lake",
         siteNumber: "104430",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "-5863523451461382543",
@@ -62,6 +80,7 @@ const sites = [
         siteName: "Portage Lake Authority WWTP",
         siteNumber: "18009",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "-4200184700666321177",
@@ -70,6 +89,7 @@ const sites = [
         siteName: "Atchson Hotel",
         siteNumber: "20098",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "8238506560530379722",
@@ -78,6 +98,7 @@ const sites = [
         siteName: "My Next Lighthouse",
         siteNumber: "55E94255-BCEF",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "-1421436179653998392",
@@ -86,6 +107,7 @@ const sites = [
         siteName: "Walkerville WWTP",
         siteNumber: "11909",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "5202056661720833633",
@@ -94,6 +116,7 @@ const sites = [
         siteName: "City of Mt Pleasant-Mt Pleasant: 15-37-0006-P",
         siteNumber: "15-37-0006-P",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "3536673147871790986",
@@ -102,6 +125,7 @@ const sites = [
         siteName: "nSite-Explorer-Test",
         siteNumber: "CECA33C2-C3A2",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "-1051844383864804245",
@@ -110,6 +134,7 @@ const sites = [
         siteName: "A M Todd Co",
         siteNumber: "10457",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "5787653687642380496",
@@ -118,6 +143,7 @@ const sites = [
         siteName: "SQL Trace Test Bill",
         siteNumber: "6C2DB358-14AB",
         userId: "8285620348187282972",
+        permits: permits,
     },
     {
         id: "3484382327516114129",
@@ -126,6 +152,7 @@ const sites = [
         siteName: "Fowler WWSL",
         siteNumber: "10449",
         userId: "8285620348187282972",
+        permits: permits,
     },
 ];
 
