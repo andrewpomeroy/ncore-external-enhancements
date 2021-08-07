@@ -1,10 +1,9 @@
 export default {
   bindings: {
-    // sites: '<',
+    sites: "<",
+    selectedSite: "<",
     // user: '<',
     // themeConfig: '<',
     // multipleSiteCategories: '<'
   },
 };
-
-

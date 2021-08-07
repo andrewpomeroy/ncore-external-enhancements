@@ -1,23 +1,32 @@
 import selectSiteTemplate from "./select-site-dialog.html";
 
-const getselectSiteDialog = function ($scope, $mdDialog) {
+const getselectSiteDialog = function ($scope, $mdDialog, sites) {
+  $scope.sites = sites;
+  console.log(sites);
   return function (event) {
-    $mdDialog.show({
+    return $mdDialog.show({
       controller: DialogController,
-      // templateUrl: 'dialog1.tmpl.html',
+      bindToController: true,
+      controllerAs: "$ctrl",
       template: selectSiteTemplate,
-      // Appending dialog to document.body to cover sidenav in docs app
-      // Modal dialogs should fully cover application to prevent interaction outside of dialog
-      parent: angular.element(document.body),
+      // parent: angular.element(document.body),
       targetEvent: event,
       clickOutsideToClose: true,
-      fullscreen: $scope.customFullscreen, // Only for -xs, -sm breakpoints.
+      fullscreen: true,
+      locals: {
+        sites: sites,
+      },
     });
   };
 };
 
-function DialogController() {
-  console.log("whatever");
+DialogController.$inject = ["$mdDialog", "sites"];
+function DialogController($mdDialog, sites) {
+  var $ctrl = this;
+  $ctrl.sites = sites;
+
+  $ctrl.confirm = $mdDialog.hide;
+  $ctrl.cancel = $mdDialog.cancel;
 }
 
 export default getselectSiteDialog;

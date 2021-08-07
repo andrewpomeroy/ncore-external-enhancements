@@ -16,7 +16,20 @@ function Controller($scope, $mdDialog) {
   const $ctrl = this;
 
   $ctrl.selectSite = (event) => {
-    getSelectSiteDialog($scope, $mdDialog)(event);
+    if (!$ctrl.newFormWizardContext.selectedSite) {
+      getSelectSiteDialog(
+        $scope,
+        $mdDialog,
+        $ctrl.newFormWizardContext.sites
+      )(event).then(
+        function (val) {
+          console.log(val);
+        },
+        function (cancelVal) {
+          console.log(cancelVal);
+        }
+      );
+    }
   };
 
   $ctrl.$onInit = () => {

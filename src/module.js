@@ -43,13 +43,13 @@ angular.module("app").config([
             template:
               "" +
               '<div class="debug">' +
-              "<label>" +
+              "<label class='control-label'>" +
               '<input type="checkbox" ng-model="isInternal" />' +
               "Internal User" +
               "</label>" +
               '<div ng-if="!isInternal">' +
-              "<label>Site count</label>" +
-              '<select ng-model="$parent.siteCount">' +
+              "<label class='control-label'>Site count</label>" +
+              '<select class="form-control" ng-model="$parent.siteCount">' +
               '<option value="0">0</option>' +
               '<option value="1">1</option>' +
               '<option value="2">2</option>' +
@@ -60,15 +60,15 @@ angular.module("app").config([
               // '{{selectedSite}}' +
               // '</div>' +
               "<div>" +
-              "<label>Site</label>" +
-              '<select ng-if="sites.length" ng-model="$parent.selectedSite">' +
+              "<label class='control-label'>Site</label>" +
+              '<select class="form-control" ng-if="sites.length" ng-model="$parent.selectedSite">' +
               '<option value="">(All)</option>' +
               '<option ng-repeat="site in sites" ng-value="site">{{site.siteName}}</option>' +
               "</select>" +
               "</div>" +
               "</div>" +
-              "<new-form-wizard-context>" +
-              "<welcome-layout>" +
+              '<new-form-wizard-context sites="sites" selected-site="selectedSite">' +
+              "<welcome-layout >" +
               "</welcome-layout>" +
               "</new-form-wizard-context>",
             controller: "WelcomeController",
