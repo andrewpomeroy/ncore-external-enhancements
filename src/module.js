@@ -8,6 +8,7 @@ import WelcomeController from "./welcome-controller.js";
 import welcomeLayout from "./components/welcome-layout";
 import newFormWizardContext from "./components/new-form-wizard-context";
 import newFormWizard from "./components/new-form-wizard";
+import newFormWizardNewPermit from "./components/new-form-wizard-new-permit";
 import welcomeAddSite from "./components/welcome-add-site";
 import welcomeAddExisting from "./components/welcome-add-existing";
 import welcomeVerificationCodeInfo from "./components/welcome-verification-code-info";
@@ -31,13 +32,13 @@ angular.module("app").config([
     $stateProvider.state({
       name: "root",
       url: "/",
-      redirectTo: "welcome",
+      redirectTo: "startNewForm",
     });
 
-    var welcomeStates = [
+    var startNewFormStates = [
       {
-        name: "welcome",
-        url: "/welcome",
+        name: "startNewForm",
+        url: "/start-new-form",
         views: {
           "": {
             template:
@@ -73,32 +74,23 @@ angular.module("app").config([
               "</new-form-wizard-context>",
             controller: "WelcomeController",
           },
-          "welcomeContent@welcome": {
+          "startNewFormContent@startNewForm": {
             template: "<new-form-wizard></new-form-wizard>",
           },
         },
       },
       {
-        name: "welcome.add",
-        url: "/add",
+        name: "startNewForm.newPermit",
+        url: "/new-permit",
         views: {
-          "welcomeContent@welcome": {
-            template: "<welcome-add-site></welcome-add-site>",
-          },
-        },
-      },
-      {
-        name: "welcome.add.existing",
-        url: "/existing",
-        views: {
-          "welcomeContent@welcome": {
-            template: "<welcome-add-existing></welcome-add-existing>",
+          "startNewFormContent@startNewForm": {
+            template: "<new-form-wizard-new-permit></new-form-wizard-new-permit>",
           },
         },
       },
     ];
 
-    welcomeStates.forEach(function (state) {
+    startNewFormStates.forEach(function (state) {
       $stateProvider.state(state);
     });
   },
@@ -107,6 +99,7 @@ angular.module("app").config([
 angular.module("app").component("welcomeLayout", welcomeLayout);
 angular.module("app").component("newFormWizardContext", newFormWizardContext);
 angular.module("app").component("newFormWizard", newFormWizard);
+angular.module("app").component("newFormWizardNewPermit", newFormWizardNewPermit);
 angular.module("app").component("welcomeAddSite", welcomeAddSite);
 angular.module("app").component("welcomeAddExisting", welcomeAddExisting);
 angular.module("app").component("welcomeVerificationCodeInfo", welcomeVerificationCodeInfo);

@@ -11,8 +11,8 @@ export default {
   controller: Controller,
 };
 
-Controller.$inject = ["$scope", "$mdDialog"];
-function Controller($scope, $mdDialog) {
+Controller.$inject = ["$scope", "$state", "$mdDialog"];
+function Controller($scope, $state, $mdDialog) {
   const $ctrl = this;
 
   $ctrl.selectSite = (event) => {
@@ -24,6 +24,8 @@ function Controller($scope, $mdDialog) {
       )(event).then(
         function (val) {
           console.log(val);
+          console.log($state.current);
+          $state.go(".newPermit", { siteId: val });
         },
         function (cancelVal) {
           console.log(cancelVal);
