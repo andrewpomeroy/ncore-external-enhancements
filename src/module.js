@@ -5,7 +5,7 @@ import "@uirouter/angularjs";
 
 import WelcomeController from "./welcome-controller.js";
 
-import welcomeLayout from "./components/welcome-layout";
+import startNewFormLayout from "./components/start-new-form-layout";
 import newFormWizardContext from "./components/new-form-wizard-context";
 import newFormWizard from "./components/new-form-wizard";
 import newFormWizardNewPermit from "./components/new-form-wizard-new-permit";
@@ -69,12 +69,14 @@ angular.module("app").config([
               "</div>" +
               "</div>" +
               '<new-form-wizard-context sites="sites" selected-site="selectedSite">' +
-              "<welcome-layout >" +
-              "</welcome-layout>" +
+              "<div ui-view='startNewFormContent'></div>" +
               "</new-form-wizard-context>",
             controller: "WelcomeController",
           },
-          "startNewFormContent@startNewForm": {
+          "startNewFormContent@.": {
+            template: "<start-new-form-layout></start-new-form-layout>",
+          },
+          "startNewFormMain@.": {
             template: "<new-form-wizard></new-form-wizard>",
           },
         },
@@ -83,8 +85,15 @@ angular.module("app").config([
         name: "startNewForm.newPermit",
         url: "/new-permit",
         views: {
-          "startNewFormContent@startNewForm": {
+          "startNewFormMain@startNewForm": {
             template: "<new-form-wizard-new-permit></new-form-wizard-new-permit>",
+            // controller: [
+            //   "$scope",
+            //   "$state",
+            //   function ($scope, $state) {
+            //     console.log($state.current.data.one);
+            //   },
+            // ],
           },
         },
       },
@@ -96,7 +105,7 @@ angular.module("app").config([
   },
 ]);
 
-angular.module("app").component("welcomeLayout", welcomeLayout);
+angular.module("app").component("startNewFormLayout", startNewFormLayout);
 angular.module("app").component("newFormWizardContext", newFormWizardContext);
 angular.module("app").component("newFormWizard", newFormWizard);
 angular.module("app").component("newFormWizardNewPermit", newFormWizardNewPermit);

@@ -344,3 +344,10 @@ p.WelcomeText {
 .WelcomeOption:not(:last-child) {
   margin-bottom: 14px;
 }
+
+.WelcomeColumn--main {
+  background-color: #fff;
+  & + & {
+    position: absolute;
+  }
+}

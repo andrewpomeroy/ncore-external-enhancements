@@ -1,19 +1,19 @@
 import angular from "angular";
-import template from "./welcome-layout.html";
+import template from "./start-new-form-layout.html";
 
 export default {
   bindings: {},
   template: template,
   require: {
-    "newFormWizardContext": "^",
+    newFormWizardContext: "^",
   },
-  controller: controller
+  controller: controller,
 };
 
-function controller () {
-  this.$postLink = function() {
+function controller() {
+  this.$postLink = function () {
     if (this.newFormWizardContext) {
       console.log(this.newFormWizardContext);
     }
-  }
+  };
 }
