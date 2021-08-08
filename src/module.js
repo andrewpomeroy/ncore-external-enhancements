@@ -39,6 +39,9 @@ angular.module("app").config([
       {
         name: "startNewForm",
         url: "/start-new-form",
+        startNewFormHeader: {
+          title: "Start New Form",
+        },
         views: {
           "": {
             template:
@@ -84,6 +87,9 @@ angular.module("app").config([
       {
         name: "startNewForm.newPermit",
         url: "/new-permit",
+        startNewFormHeader: {
+          title: "New Permit Applications",
+        },
         views: {
           "startNewFormMain@startNewForm": {
             template: "<new-form-wizard-new-permit></new-form-wizard-new-permit>",
