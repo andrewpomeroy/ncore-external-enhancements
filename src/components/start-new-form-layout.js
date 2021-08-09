@@ -11,6 +11,8 @@ export default {
 };
 
 function controller() {
+  var $ctrl = this;
+
   this.$postLink = function () {
     if (this.newFormWizardContext) {
       console.log(this.newFormWizardContext);

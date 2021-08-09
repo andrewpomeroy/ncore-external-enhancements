@@ -96,6 +96,10 @@ p.WelcomeText {
   margin: @welcome-block-marginV 0;
 }
 
+.WelcomeScreenBlock--first {
+  margin-top: 0;
+}
+
 .WelcomeScreenSeparator {
   border-bottom: 1px solid @welcome-separator-borderColor;
 }
@@ -350,4 +354,18 @@ p.WelcomeText {
   & + & {
     position: absolute;
   }
+}
+
+.WelcomeRowLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.WelcomeRowLayout-row {
+  flex: 1;
+}
+
+.WelcomeColumnLayout {
+  width: 100%;
 }

@@ -39,7 +39,7 @@ angular.module("app").config([
       {
         name: "startNewForm",
         url: "/start-new-form",
-        startNewFormHeader: {
+        newFormWizardData: {
           title: "Start New Form",
         },
         views: {
@@ -87,12 +87,31 @@ angular.module("app").config([
       {
         name: "startNewForm.newPermit",
         url: "/new-permit",
-        startNewFormHeader: {
+        newFormWizardData: {
           title: "New Permit Applications",
         },
         views: {
           "startNewFormMain@startNewForm": {
             template: "<new-form-wizard-new-permit></new-form-wizard-new-permit>",
+            // controller: [
+            //   "$scope",
+            //   "$state",
+            //   function ($scope, $state) {
+            //     console.log($state.current.data.one);
+            //   },
+            // ],
+          },
+        },
+      },
+      {
+        name: "startNewForm.newPermit.something",
+        url: "/something",
+        newFormWizardData: {
+          title: "Something",
+        },
+        views: {
+          "startNewFormMain@startNewForm": {
+            template: "<h3>hello</h3>",
             // controller: [
             //   "$scope",
             //   "$state",

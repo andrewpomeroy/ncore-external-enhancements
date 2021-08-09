@@ -1,12 +1,84 @@
 <div class="WelcomeShimFill">
-  <div class="WelcomeColumnLayout Welcome">
-    <div
-      class="WelcomeColumn WelcomeColumn--main"
-      ui-view="startNewFormMain"
-    ></div>
-    <!-- <aside
-      class="WelcomeColumn WelcomeColumn--aside"
-      ui-view="startNewFormSidebar"
-    ></aside> -->
+  <div class="WelcomeRowLayout Welcome">
+    <div class="WelcomeRowLayout-row WelcomeColumnLayout">
+      <div class="WelcomeColumn WelcomeColumn--main">
+        <div
+          class="WelcomeScreenTopNav"
+          ng-show="$ctrl.newFormWizardContext.backSref"
+        >
+          <a
+            class="WelcomeScreenTopNav-back"
+            ng-click="$ctrl.newFormWizardContext.goBack()"
+          >
+            <div class="WelcomeScreenTopNav-back-chevron">
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 16 16"
+                enable-background="new 0 0 16 16"
+                xml:space="preserve"
+              >
+                <polyline
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                  points="6,2 12,8 6,14 "
+                />
+              </svg>
+            </div>
+            <div class="WelcomeScreenTopNav-label">Back</div>
+          </a>
+        </div>
+        <div class="WelcomeScreenHeader">
+          <!-- <pre>{{$ctrl.newFormWizardContext.breadcrumbItems | json}}</pre> -->
+          <div class="Breadcrumb">
+            <div
+              ng-repeat="item in $ctrl.newFormWizardContext.breadcrumbItems"
+              layout="horizontal"
+              align-items="center"
+            >
+              <a class="Breadcrumb-link" ui-sref="{{item.sref}}"
+                >{{item.title}}</a
+              >
+              <span class="Breadcrumb-chevron">
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 16 16"
+                  enable-background="new 0 0 16 16"
+                  xml:space="preserve"
+                >
+                  <polyline
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                    points="6,2 12,8 6,14 "
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <h1 class="WelcomeHeading1">
+            {{$ctrl.newFormWizardContext.currentTitle || "no title"}}
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div class="WelcomeRowLayout-row WelcomeColumnLayout">
+      <div class="WelcomeColumn WelcomeColumn--main" ui-view="startNewFormMain">
+        <!-- <aside
+        class="WelcomeColumn WelcomeColumn--aside"
+        ui-view="startNewFormSidebar"
+      ></aside> -->
+      </div>
+    </div>
   </div>
 </div>
