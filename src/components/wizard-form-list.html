@@ -1,0 +1,41 @@
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first">
+  <div class="split-block-heading">
+    <div class="split-block left">
+      <div class="split-block-element">
+        <h2 class="WelcomeHeading3" ng-transclude="heading">{{$ctrl.list.length}} items found</h2>
+      </div>
+    </div>
+    <div class="split-block right">
+      <div class="split-block-element">
+        <input type="text" class="form-control" ng-model="$ctrl.filter" placeholder="Filter by name"
+          style="min-width: 16em" />
+        <h2 class="WelcomeHeading3"></h2>
+      </div>
+    </div>
+  </div>
+  <ul class="WelcomeScreenActionBlocks">
+    <li class="WelcomeScreenActionBlock WelcomeScreenActionBlock--xsmall WelcomeScreenActionBlock--noMaxHeight"
+      ng-repeat="item in $ctrl.filteredItems" role="button" tabindex="0" ng-click="$ctrl.onClickItem(item)">
+      <div class="WelcomeScreenActionBlock-splitH">
+        <div class="WelcomeScreenActionBlock-titleBlock">
+          <div class="WelcomeScreenActionBlock-title" ng-bind="item.name"></div>
+          <div class="WelcomeScreenActionBlock-subtitle" ng-bind="item.description"
+            ng-if="item.name !== item.description"></div>
+        </div>
+        <div class="WelcomeScreenActionBlock-chevron">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+            y="0px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+            <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"
+              points="6,2 12,8 6,14 " />
+          </svg>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="well" ng-if="!$ctrl.filteredItems.length">
+    No forms found matching "<em>{{$ctrl.filter}}</em>"
+  </div>
+</div>
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.list.length">
+  <div class="well" ng-transclude="noneFoundMsg">None found</div>
+</div>

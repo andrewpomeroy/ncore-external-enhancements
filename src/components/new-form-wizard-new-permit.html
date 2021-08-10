@@ -1,57 +1,11 @@
 <div class="WelcomeScreenBlock WelcomeScreenBlock--first">
-  <div class="split-block-heading">
-    <div class="split-block left">
-      <div class="split-block-element">
-        <h2 class="WelcomeHeading3">{{$ctrl.site.permitApplicationForms.length}} permit application forms available <span ng-if="$ctrl.site"> for <strong>{{$ctrl.site.siteName}}</strong></span></h2>
-        <!-- <h2 class="WelcomeHeading3" ng-if="!$ctrl.site.permitApplicationForms.length">No permit application forms available for <strong>{{$ctrl.site.siteName}}</strong></h2> -->
-      </div>
-    </div>
-    <div class="split-block right">
-      <div class="split-block-element">
-        <input type="text" class="form-control" ng-model="$ctrl.filter" placeholder="Filter by name" style="min-width: 16em" />
-        <h2 class="WelcomeHeading3"></h2>
-      </div>
-    </div>
-  </div>
-  <ul class="WelcomeScreenActionBlocks">
-    <li
-      class="WelcomeScreenActionBlock WelcomeScreenActionBlock--xsmall WelcomeScreenActionBlock--noMaxHeight"
-      ng-repeat="permit in $ctrl.filteredItems"
-    >
-      <div class="WelcomeScreenActionBlock-splitH">
-        <div class="WelcomeScreenActionBlock-titleBlock">
-          <div class="WelcomeScreenActionBlock-title" ng-bind="permit.name"></div>
-          <div class="WelcomeScreenActionBlock-subtitle" ng-bind="permit.description" ng-if="permit.name !== permit.description"></div>
-        </div>
-        <div class="WelcomeScreenActionBlock-chevron">
-          <svg
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            viewBox="0 0 16 16"
-            enable-background="new 0 0 16 16"
-            xml:space="preserve"
-          >
-            <polyline
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-miterlimit="10"
-              points="6,2 12,8 6,14 "
-            />
-          </svg>
-        </div>
-      </div>
-    </li>
-  </ul>
-  <div class="well" ng-if="!$ctrl.filteredItems.length">
-    No forms found matching "<em>{{$ctrl.filter}}</em>"
-  </div>
-</div>
-<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.site.permitApplicationForms.length">
-  <div class="well">
-    No permit application forms available for <strong>{{$ctrl.site.siteName}}</strong>
-  </div>
+  <wizard-form-list list="$ctrl.site.permitApplicationForms" on-click-item="$ctrl.startForm">
+    <heading>
+      {{$ctrl.site.permitApplicationForms.length}} permit application forms available <span ng-if="$ctrl.site"> for
+        <strong>{{$ctrl.site.siteName}}</strong></span></h2>
+    </heading>
+    <none-found-msg>
+      No permit application forms available for <strong>{{$ctrl.site.siteName}}</strong>
+    </none-found-msg>
+  </wizard-form-list>
 </div>

@@ -19,25 +19,16 @@ function Controller($scope, $state, $stateParams, $mdDialog) {
       get: function () {
         return (
           $stateParams.siteId &&
+          $ctrl.newFormWizardContext.sites &&
           $ctrl.newFormWizardContext.sites.find(function (site) {
             return site.siteId === $stateParams.siteId;
           })
         );
       },
     },
-    filteredItems: {
-      get: function () {
-        if (!$ctrl.filter || !$ctrl.filter.length) return $ctrl.site.permitApplicationForms;
-        return $ctrl.site.permitApplicationForms.filter(function (form) {
-          return [form.name, form.description].some(function (property) {
-            return (
-              property && typeof property === "string" && property.trim().toLowerCase().indexOf($ctrl.filter.trim().toLowerCase()) !== -1
-            );
-          });
-        });
-      },
-    },
   });
 
-  $ctrl.$onInit = () => {};
+  $ctrl.startForm = function (form) {
+    alert("starting form:\n" + JSON.stringify(form, null, 2));
+  };
 }

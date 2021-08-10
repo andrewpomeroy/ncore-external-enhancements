@@ -12,6 +12,7 @@ import newFormWizardNewPermit from "./components/new-form-wizard-new-permit";
 import welcomeAddSite from "./components/welcome-add-site";
 import welcomeAddExisting from "./components/welcome-add-existing";
 import welcomeVerificationCodeInfo from "./components/welcome-verification-code-info";
+import wizardFormList from "./components/wizard-form-list";
 
 angular.module("app", ["ui.router", "ngAnimate", "ngAria", "ngMaterial"]).controller("WelcomeController", WelcomeController);
 
@@ -123,3 +124,4 @@ angular.module("app").component("newFormWizardNewPermit", newFormWizardNewPermit
 angular.module("app").component("welcomeAddSite", welcomeAddSite);
 angular.module("app").component("welcomeAddExisting", welcomeAddExisting);
 angular.module("app").component("welcomeVerificationCodeInfo", welcomeVerificationCodeInfo);
+angular.module("app").component("wizardFormList", wizardFormList);
