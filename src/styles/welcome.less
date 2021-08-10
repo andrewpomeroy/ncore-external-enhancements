@@ -228,9 +228,12 @@ p.WelcomeText {
 .WelcomeScreenActionBlock--small {
   // padding-top: 24px;
   // padding-bottom: 24px;
-  padding-top: 0;
-  padding-bottom: 0;
-  height: 72px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  min-height: 72px;
+  &:not(.WelcomeScreenActionBlock--noMaxHeight) {
+    height: 72px;
+  }
   .WelcomeScreenActionBlock-title {
     font-size: 19px;
     font-weight: 400;
@@ -249,9 +252,12 @@ p.WelcomeText {
 .WelcomeScreenActionBlock--xsmall {
   // padding-top: 24px;
   // padding-bottom: 24px;
-  padding-top: 0;
-  padding-bottom: 0;
-  height: 64px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  min-height: 64px;
+  &:not(.WelcomeScreenActionBlock--noMaxHeight) {
+    height: 64px;
+  }
   .WelcomeScreenActionBlock-title {
     font-size: 17px;
     font-weight: 400;
