@@ -1,18 +1,25 @@
 <div class="WelcomeScreenBlock WelcomeScreenBlock--first">
-  <h2 class="WelcomeHeading2">Available Permits<span ng-if="$ctrl.site"> for <em>{{$ctrl.site.siteName}}</em></span></h2>
+  <div class="split-block-heading">
+    <div class="split-block left">
+      <div class="split-block-element">
+        <h2 class="WelcomeHeading3">{{$ctrl.site.permits.length}} permit applications available <span ng-if="$ctrl.site"> for <em>{{$ctrl.site.siteName}}</em></span></h2>
+      </div>.
+    </div>
+    <div class="split-block right">
+      <div class="split-block-element">
+        <input type="text" class="form-control" ng-model="$ctrl.filter" placeholder="Filter by name" style="min-width: 16em" />
+        <h2 class="WelcomeHeading3"></h2>
+      </div>
+    </div>
+  </div>
   <ul class="WelcomeScreenActionBlocks">
     <li
-      class="WelcomeScreenActionBlock WelcomeScreenActionBlock--small"
-      ui-sref=".something"
+      class="WelcomeScreenActionBlock WelcomeScreenActionBlock--xsmall"
+      ng-repeat="permit in filteredPermits = ($ctrl.site.permits | filter:$ctrl.filter)"
     >
       <div class="WelcomeScreenActionBlock-splitH">
         <div class="WelcomeScreenActionBlock-titleBlock">
-          <div class="WelcomeScreenActionBlock-title">
-            <em>Something</em>
-          </div>
-          <!-- <div class="WelcomeScreenActionBlock-subtitle">
-            Permit application forms
-          </div> -->
+          <div class="WelcomeScreenActionBlock-title" ng-bind="permit"></div>
         </div>
         <div class="WelcomeScreenActionBlock-chevron">
           <svg
