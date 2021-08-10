@@ -27,9 +27,9 @@ function Controller($scope, $state, $stateParams, $mdDialog) {
     },
     filteredItems: {
       get: function () {
-        if (!$ctrl.filter || !$ctrl.filter.length) return $ctrl.site.permits;
-        return $ctrl.site.permits.filter(function (permit) {
-          return [permit.name, permit.description].some(function (property) {
+        if (!$ctrl.filter || !$ctrl.filter.length) return $ctrl.site.permitApplicationForms;
+        return $ctrl.site.permitApplicationForms.filter(function (form) {
+          return [form.name, form.description].some(function (property) {
             return (
               property && typeof property === "string" && property.trim().toLowerCase().indexOf($ctrl.filter.trim().toLowerCase()) !== -1
             );

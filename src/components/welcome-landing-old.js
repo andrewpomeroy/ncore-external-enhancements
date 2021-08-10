@@ -5,15 +5,11 @@ export default {
   bindings: {},
   template: template,
   require: {
-    "welcomeContext": "^",
+    welcomeContext: "^",
   },
-  controller: controller
+  controller: controller,
 };
 
 function controller() {
-  this.$postLink = function () {
-    if (this.welcomeContext) {
-      console.log(this.welcomeContext);
-    }
-  }
+  this.$postLink = function () {};
 }

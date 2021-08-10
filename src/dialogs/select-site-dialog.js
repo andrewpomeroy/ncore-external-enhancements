@@ -2,7 +2,6 @@ import selectSiteTemplate from "./select-site-dialog.html";
 
 const getselectSiteDialog = function ($scope, $mdDialog, sites) {
   $scope.sites = sites;
-  console.log(sites);
   return function (event) {
     return $mdDialog.show({
       controller: DialogController,

@@ -19,7 +19,6 @@ function NewFormWizardContextController($transitions, $state) {
   };
 
   function updateNavigationContext() {
-    console.log($state.$current.parent);
     $ctrl.currentTitle = $state.current.newFormWizardData && $state.current.newFormWizardData.title;
     $ctrl.backSref = $state.$current.parent && $state.$current.parent.name;
 

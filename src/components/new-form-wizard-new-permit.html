@@ -2,8 +2,8 @@
   <div class="split-block-heading">
     <div class="split-block left">
       <div class="split-block-element">
-        <h2 class="WelcomeHeading3">{{$ctrl.site.permits.length}} permit application forms available <span ng-if="$ctrl.site"> for <strong>{{$ctrl.site.siteName}}</strong></span></h2>
-        <!-- <h2 class="WelcomeHeading3" ng-if="!$ctrl.site.permits.length">No permit application forms available for <strong>{{$ctrl.site.siteName}}</strong></h2> -->
+        <h2 class="WelcomeHeading3">{{$ctrl.site.permitApplicationForms.length}} permit application forms available <span ng-if="$ctrl.site"> for <strong>{{$ctrl.site.siteName}}</strong></span></h2>
+        <!-- <h2 class="WelcomeHeading3" ng-if="!$ctrl.site.permitApplicationForms.length">No permit application forms available for <strong>{{$ctrl.site.siteName}}</strong></h2> -->
       </div>
     </div>
     <div class="split-block right">
@@ -50,7 +50,7 @@
     No forms found matching "<em>{{$ctrl.filter}}</em>"
   </div>
 </div>
-<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.site.permits.length">
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.site.permitApplicationForms.length">
   <div class="well">
     No permit application forms available for <strong>{{$ctrl.site.siteName}}</strong>
   </div>

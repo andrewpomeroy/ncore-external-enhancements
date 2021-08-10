@@ -1,4 +1,4 @@
-const permits = [
+const permitApplicationForms = [
   {
     name: "(TEST ONLY) Testing Advanced Table Controls",
     description: "Test Form",
@@ -307,4 +307,4 @@ const permits = [
   },
 ];
 
-export default permits;
+export default permitApplicationForms;
