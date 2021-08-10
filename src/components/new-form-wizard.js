@@ -16,21 +16,23 @@ function Controller($scope, $state, $mdDialog) {
   const $ctrl = this;
 
   $ctrl.selectSite = (event) => {
-    if (!$ctrl.newFormWizardContext.selectedSite) {
+    // Don't prompt for site selection if there's already a site selected in the site-menu
+    // Except when in single-site mode (otherwise there's no way to create a new site w/ an application)
+    if (!$ctrl.newFormWizardContext.selectedSite || $ctrl.newFormWizardContext.sites.length === 1) {
       getSelectSiteDialog(
         $scope,
         $mdDialog,
         $ctrl.newFormWizardContext.sites
       )(event).then(
-        function (val) {
-          console.log(val);
-          console.log($state.current);
-          $state.go(".newPermit", { siteId: val });
+        function (siteId) {
+          $state.go(".newPermit", { siteId: siteId });
         },
         function (cancelVal) {
           console.log(cancelVal);
         }
       );
+    } else {
+      $state.go(".newPermit", { siteId: $ctrl.newFormWizardContext.selectedSite.siteId });
     }
   };
 

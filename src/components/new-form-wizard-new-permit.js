@@ -10,9 +10,22 @@ export default {
   controller: Controller,
 };
 
-Controller.$inject = ["$scope", "$state", "$mdDialog"];
-function Controller($scope, $state, $mdDialog) {
+Controller.$inject = ["$scope", "$state", "$stateParams", "$mdDialog"];
+function Controller($scope, $state, $stateParams, $mdDialog) {
   const $ctrl = this;
+
+  Object.defineProperties($ctrl, {
+    site: {
+      get: function () {
+        return (
+          $stateParams.siteId &&
+          $ctrl.newFormWizardContext.sites.find(function (site) {
+            return site.siteId === $stateParams.siteId;
+          })
+        );
+      },
+    },
+  });
 
   $ctrl.$onInit = () => {};
 }

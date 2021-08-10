@@ -6,7 +6,6 @@ controller.$inject = ["$scope"];
 
 function controller($scope) {
   $scope.$watch("isInternal", function (newValue, oldValue) {
-    // console.log(newValue, oldValue);
     if (newValue) {
       $scope.selectedSite = null;
       $scope.siteCount = "many";
@@ -18,7 +17,6 @@ function controller($scope) {
   });
 
   $scope.$watch("siteCount", function (newValue, oldValue) {
-    console.log(newValue, oldValue);
     if (newValue !== null) {
       _siteCount = newValue;
     }

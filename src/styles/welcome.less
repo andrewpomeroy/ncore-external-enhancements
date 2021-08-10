@@ -12,7 +12,7 @@
 @welcome-link-color: @welcome-action-color-primary;
 
 @welcome-actionBlock-borderColor: #b0b0b0;
-@welcome-actionBlock-gutter: 14px;
+@welcome-actionBlock-gutter: 8px;
 @welcome-actionBlock-highlight: hsl(hue(@welcome-heading-color), 100%, 97%);
 
 .Welcome {
@@ -183,8 +183,11 @@ p.WelcomeText {
   transition: 50ms all linear;
 }
 .WelcomeScreenActionBlock--small {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  // padding-top: 24px;
+  // padding-bottom: 24px;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 72px;
 }
 
 .WelcomeScreenActionBlock-splitH {
@@ -232,6 +235,8 @@ p.WelcomeText {
 .WelcomeScreenActionBlock--small {
   .WelcomeScreenActionBlock-title {
     font-size: 19px;
+    font-weight: 400;
+    line-height: 1.2;
   }
   .WelcomeScreenActionBlock-subtitle {
     font-size: 14px;

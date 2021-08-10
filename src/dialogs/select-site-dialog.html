@@ -10,72 +10,52 @@
   </md-toolbar>
   <div class="mdDialog-body mdDialog-body--scroll">
     <div class="mdDialog-body-segment mdDialog-body-segment--padded">
-      <!-- <p class="note" ng-if="$ctrl.list.length > 0">
-                    Select a context for your submission from the following options. Or, select
-                    <strong>Create&nbsp;New&nbsp;Site</strong>
-                    to begin a submission for an entirely new
-                    {{$ctrl.selectedItem.siteCategoryDescription.toLowerCase()}}.
-                </p>
-                <p class="note" ng-if="$ctrl.list.length === 0">
-                    Please provide a name for the
-                    {{$ctrl.selectedItem.siteCategoryDescription.toLowerCase()}} before beginning your
-                    submission.
-                </p>
-                <div class="form-group" ng-if="$ctrl.list.length > 0">
-                    <span class="control-label">Select Site</span>
-                    <select id="siteContextSelection"
-                            class="form-control"
-                            ng-model="$ctrl.model.siteId">
-                        <option value="0">
-                            &ndash; Create New Site
-                            &ndash;
-                        </option>
-                        <optgroup label="Existing">
-                            <option ng-repeat="item in $ctrl.list"
-                                    ng-init="$last && siteListSelectionInit()"
-                                    value="{{item.siteId}}">
-                                {{item.siteName}}
-                            </option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div wnd-input
-                     input-type="text"
-                     field-label="New Site Name"
-                     wnd-model="$ctrl.model.userInputText"
-                     model-name="$ctrl.model"
-                     property-name="userInputText"
-                     ng-if="$ctrl.isNewSite"></div>
-                <div ng-if="$ctrl.selectedItem.isRequireElectronicSignature && $ctrl.selectedItem.accountRoleTypeId !== 'VIEW' && !($ctrl.isNewSite && $ctrl.isUserCertifierOnNewSites)">
-                    <div ng-if="!$ctrl.selectedItem.accountCertifierStatusId">
-                        <p class="alert-text" aria-label="certifier status warning">You will not be able to submit this form until you request certifier rights for this <span ng-if="$ctrl.model.siteId === '0'">new </span>Site and the request has been approved.</p>
-                    </div>
-                    <div ng-if="$ctrl.selectedItem.accountCertifierStatusId == 'PENDING'">
-                        <p class="alert-text" aria-label="certifier status warning">You will not be able to submit this form until certifier rights for this <span ng-if="$ctrl.model.siteId === '0'">new </span>Site have been approved.</p>
-                    </div>
-                    <div ng-if="$ctrl.selectedItem.accountCertifierStatusId == 'DENIED'">
-                        <p class="alert-text" aria-label="certifier status warning">You will not be able to submit this form because you have been denied certifier rights for this Site.</p>
-                    </div>
-                    <div ng-if="!$ctrl.isSignedAgreementReceived">
-                        <p class="alert-text" aria-label="certifier agreement warning">
-                            You will not be able to submit this form until the agency has received a signature agreement and verified your identity.
-                        </p>
-                    </div>
-                </div>
-                <div ng-if="$ctrl.selectedItem.accountRoleTypeId === 'VIEW' && $ctrl.model.siteId !== '0'">
-                    <p class="alert-text" aria-label="certifier status warning">You do not have rights to begin submissions for this Site.</p>
-                </div> -->
+      <p class="note" ng-if="$ctrl.sites.length > 0">
+          Select a context for your submission from the following options. Or, select
+          <strong>Create&nbsp;New&nbsp;Site</strong>
+          to begin a submission for an entirely new
+          site.
+      </p>
+      <p class="note" ng-if="$ctrl.sites.length === 0">
+          Please provide a name for the
+          site before beginning your
+          submission.
+      </p>
+      <div class="form-group" ng-if="$ctrl.sites.length > 0">
+          <span class="control-label">Select Site</span>
+          <select id="siteContextSelection"
+                  class="form-control"
+                  ng-model="$ctrl.model.siteId">
+              <option value="0">
+                  &ndash; Create New Site
+                  &ndash;
+              </option>
+              <optgroup label="Existing">
+                  <option ng-repeat="item in $ctrl.sites"
+                          ng-init="$last && siteListSelectionInit()"
+                          value="{{item.siteId}}">
+                      {{item.siteName}}
+                  </option>
+              </optgroup>
+          </select>
+      </div>
+      <div class="form-group" ng-if="$ctrl.isNewSite">
+        <label class="control-label">New Site Name</label>
+        <input class="form-control" type="text" ng-model="$ctrl.model.userInputText" />
+      </div>
     </div>
   </div>
   <div class="Dashboard-actionBar">
     <div class="Dashboard-action">
-      <button class="btn green" ng-click="$ctrl.confirm('yep')">
-        Begin Submission
+      <button class="btn" ng-click="$ctrl.confirm($ctrl.model.siteId)" ng-class="{'green': $ctrl.model.siteId || ($ctrl.model.isNewSite && $ctrl.model.userInputText.length)}" ng-disabled="!$ctrl.model.siteId && !($ctrl.model.isNewSite && $ctrl.model.userInputText.length)">
+        {{$ctrl.model.isNewSite ? 'Continue' : 'Select'}}
       </button>
+    </div>
+    <div class="Dashboard-action">
       <button class="btn btn-default" ng-click="$ctrl.cancel('nope')">
         Cancel
       </button>
-      <pre>{{$ctrl.sites | json }}</pre>
+      <!-- <pre>{{$ctrl.sites | json }}</pre> -->
     </div>
   </div>
 </md-dialog>

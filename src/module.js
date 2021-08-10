@@ -86,20 +86,13 @@ angular.module("app").config([
       },
       {
         name: "startNewForm.newPermit",
-        url: "/new-permit",
+        url: "/new-permit?siteId",
         newFormWizardData: {
-          title: "New Permit Applications",
+          title: "Apply for a New Permit",
         },
         views: {
           "startNewFormMain@startNewForm": {
             template: "<new-form-wizard-new-permit></new-form-wizard-new-permit>",
-            // controller: [
-            //   "$scope",
-            //   "$state",
-            //   function ($scope, $state) {
-            //     console.log($state.current.data.one);
-            //   },
-            // ],
           },
         },
       },
@@ -112,13 +105,6 @@ angular.module("app").config([
         views: {
           "startNewFormMain@startNewForm": {
             template: "<h3>hello</h3>",
-            // controller: [
-            //   "$scope",
-            //   "$state",
-            //   function ($scope, $state) {
-            //     console.log($state.current.data.one);
-            //   },
-            // ],
           },
         },
       },
