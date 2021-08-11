@@ -1,12 +1,17 @@
 <div class="WelcomeScreenBlock WelcomeScreenBlock--first">
-  <!-- <pre>{{$ctrl.forms | json}}</pre> -->
-  <wizard-form-list list="$ctrl.forms" on-click-item="$ctrl.startForm" is-loading="$ctrl.isLoading">
+  <wizard-form-list list="$ctrl.permits" on-click-item="$ctrl.selectPermit" is-loading="$ctrl.isLoading">
     <heading>
-      {{$ctrl.forms.length}} permit change forms available <span ng-if="$ctrl.site"> for
+      {{$ctrl.permits.length}} permits<span ng-if="$ctrl.site"> associated with
         <strong>{{$ctrl.site.siteName}}</strong></span></h2>
     </heading>
     <none-found-msg>
-      No permit change forms available for <strong>{{$ctrl.site.siteName}}</strong>
+      <div ng-if="$ctrl.site">
+          No permits associated with <strong>{{$ctrl.site.siteName}}</strong>
+      </div>
+      <div ng-if="!$ctrl.site">
+          There are no permits assocaited with this account.
+      </div>
     </none-found-msg>
   </wizard-form-list>
 </div>
+

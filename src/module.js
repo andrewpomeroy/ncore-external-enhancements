@@ -10,6 +10,7 @@ import newFormWizardContext from "./components/new-form-wizard-context";
 import newFormWizard from "./components/new-form-wizard";
 import newFormWizardNewPermit from "./components/new-form-wizard-new-permit";
 import newFormWizardPermitChange from "./components/new-form-wizard-permit-change";
+import newFormWizardPermitChangeSelectForm from "./components/new-form-wizard-permit-change-select-form";
 import welcomeAddSite from "./components/welcome-add-site";
 import welcomeAddExisting from "./components/welcome-add-existing";
 import welcomeVerificationCodeInfo from "./components/welcome-verification-code-info";
@@ -104,11 +105,23 @@ angular.module("app").config([
         name: "startNewForm.permitChangeForms",
         url: "/permit-change-forms?siteId",
         newFormWizardData: {
-          title: "Permit Change Forms",
+          title: "Permit Change Forms — Select Permit",
         },
         views: {
           "startNewFormMain@startNewForm": {
             template: "<new-form-wizard-permit-change></new-form-wizard-permit-change>",
+          },
+        },
+      },
+      {
+        name: "startNewForm.permitChangeForms.selectForm",
+        url: "/select-form?permitId",
+        newFormWizardData: {
+          title: "Select a Permit Change Form",
+        },
+        views: {
+          "startNewFormMain@startNewForm": {
+            template: "<new-form-wizard-permit-change-select-form></new-form-wizard-permit-change-select-form>",
           },
         },
       },
@@ -137,6 +150,7 @@ angular.module("app").component("newFormWizardContext", newFormWizardContext);
 angular.module("app").component("newFormWizard", newFormWizard);
 angular.module("app").component("newFormWizardNewPermit", newFormWizardNewPermit);
 angular.module("app").component("newFormWizardPermitChange", newFormWizardPermitChange);
+angular.module("app").component("newFormWizardPermitChangeSelectForm", newFormWizardPermitChangeSelectForm);
 angular.module("app").component("welcomeAddSite", welcomeAddSite);
 angular.module("app").component("welcomeAddExisting", welcomeAddExisting);
 angular.module("app").component("welcomeVerificationCodeInfo", welcomeVerificationCodeInfo);

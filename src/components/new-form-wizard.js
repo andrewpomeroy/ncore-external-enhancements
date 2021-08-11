@@ -22,7 +22,9 @@ function Controller($scope, $state, $mdDialog) {
       getSelectSiteDialog(
         $scope,
         $mdDialog,
-        $ctrl.newFormWizardContext.sites
+        $ctrl.newFormWizardContext.sites,
+        // Next line isn't being used at the moment, but would be useful if we want to force a site-select prompt even when there's already an established site context
+        $ctrl.newFormWizardContext.selectedSite ? $ctrl.newFormWizardContext.selectedSite.siteId : null
       )(event).then(
         function (siteId) {
           $state.go(sref, { siteId: siteId });

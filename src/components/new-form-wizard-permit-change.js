@@ -1,6 +1,5 @@
-import angular from "angular";
-import mockRestService from "../mockRestService";
 import permitChangeForms from "../permitChangeForms";
+import permits from "../permits";
 import template from "./new-form-wizard-permit-change.html";
 
 export default {
@@ -12,8 +11,8 @@ export default {
   controller: PermitChangeFormsCtrl,
 };
 
-PermitChangeFormsCtrl.$inject = ["$scope", "$stateParams", "mockRestService"];
-function PermitChangeFormsCtrl($scope, $stateParams, mockRestService) {
+PermitChangeFormsCtrl.$inject = ["$scope", "$state", "$stateParams", "mockRestService"];
+function PermitChangeFormsCtrl($scope, $state, $stateParams, mockRestService) {
   const $ctrl = this;
 
   Object.defineProperties($ctrl, {
@@ -30,24 +29,28 @@ function PermitChangeFormsCtrl($scope, $stateParams, mockRestService) {
     },
   });
 
-  $ctrl.startForm = function (form) {
-    alert("starting form:\n" + JSON.stringify(form, null, 2));
+  $ctrl.selectPermit = function (permit) {
+    console.log(permit);
+    console.log(permit.id);
+    $state.go(".selectForm", { permitId: permit.id });
   };
 
   $ctrl.$onInit = function () {
     $ctrl.isLoading = true;
-    mockRestService.getWithDelay(permitChangeForms).then(function (result) {
-      console.log($ctrl.site.permitChangeForms);
-      if ($ctrl.site.permitChangeForms) {
-        $ctrl.forms = $ctrl.site.permitChangeForms;
-      } else {
-        $ctrl.forms = result.map(function (form) {
+    mockRestService.getWithDelay(permits).then(function (result) {
+      console.log($ctrl.site.permits);
+      $ctrl.permits = result
+        .filter(function (permit) {
+          // Don't filter by site if no site selected
+          return !$ctrl.site || $ctrl.site.siteId === permit.siteId;
+        })
+        .map(function (permit) {
           return {
-            name: form.formName,
-            description: form.formDescription,
+            name: permit.permitType,
+            description: permit.permitNumber,
+            id: permit.id,
           };
         });
-      }
       $ctrl.isLoading = false;
     });
   };

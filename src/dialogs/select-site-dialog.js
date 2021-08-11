@@ -1,6 +1,6 @@
 import selectSiteTemplate from "./select-site-dialog.html";
 
-const getselectSiteDialog = function ($scope, $mdDialog, sites) {
+const getselectSiteDialog = function ($scope, $mdDialog, sites, siteId) {
   $scope.sites = sites;
   return function (event) {
     return $mdDialog.show({
@@ -14,19 +14,21 @@ const getselectSiteDialog = function ($scope, $mdDialog, sites) {
       fullscreen: true,
       locals: {
         sites: sites,
+        siteId: siteId,
       },
     });
   };
 };
 
-DialogController.$inject = ["$scope", "$mdDialog", "sites"];
-function DialogController($scope, $mdDialog, sites) {
+DialogController.$inject = ["$scope", "$mdDialog", "sites", "siteId"];
+function DialogController($scope, $mdDialog, sites, siteId) {
   var $ctrl = this;
   $ctrl.sites = sites;
+  // $ctrl.siteId = siteId;
 
   $ctrl.model = {
     userInputText: "",
-    siteId: null,
+    siteId: siteId,
     metadata: {
       userInputText: {
         typeName: "String",
