@@ -9,10 +9,13 @@ import startNewFormLayout from "./components/start-new-form-layout";
 import newFormWizardContext from "./components/new-form-wizard-context";
 import newFormWizard from "./components/new-form-wizard";
 import newFormWizardNewPermit from "./components/new-form-wizard-new-permit";
+import newFormWizardPermitChange from "./components/new-form-wizard-permit-change";
 import welcomeAddSite from "./components/welcome-add-site";
 import welcomeAddExisting from "./components/welcome-add-existing";
 import welcomeVerificationCodeInfo from "./components/welcome-verification-code-info";
 import wizardFormList from "./components/wizard-form-list";
+
+import mockRestService from "./mockRestService";
 
 angular.module("app", ["ui.router", "ngAnimate", "ngAria", "ngMaterial"]).controller("WelcomeController", WelcomeController);
 
@@ -98,17 +101,29 @@ angular.module("app").config([
         },
       },
       {
-        name: "startNewForm.newPermit.something",
-        url: "/something",
+        name: "startNewForm.permitChangeForms",
+        url: "/permit-change-forms?siteId",
         newFormWizardData: {
-          title: "Something",
+          title: "Permit Change Forms",
         },
         views: {
           "startNewFormMain@startNewForm": {
-            template: "<h3>hello</h3>",
+            template: "<new-form-wizard-permit-change></new-form-wizard-permit-change>",
           },
         },
       },
+      // {
+      //   name: "startNewForm.newPermit.something",
+      //   url: "/something",
+      //   newFormWizardData: {
+      //     title: "Something",
+      //   },
+      //   views: {
+      //     "startNewFormMain@startNewForm": {
+      //       template: "<h3>hello</h3>",
+      //     },
+      //   },
+      // },
     ];
 
     startNewFormStates.forEach(function (state) {
@@ -121,7 +136,10 @@ angular.module("app").component("startNewFormLayout", startNewFormLayout);
 angular.module("app").component("newFormWizardContext", newFormWizardContext);
 angular.module("app").component("newFormWizard", newFormWizard);
 angular.module("app").component("newFormWizardNewPermit", newFormWizardNewPermit);
+angular.module("app").component("newFormWizardPermitChange", newFormWizardPermitChange);
 angular.module("app").component("welcomeAddSite", welcomeAddSite);
 angular.module("app").component("welcomeAddExisting", welcomeAddExisting);
 angular.module("app").component("welcomeVerificationCodeInfo", welcomeVerificationCodeInfo);
 angular.module("app").component("wizardFormList", wizardFormList);
+
+angular.module("app").factory("mockRestService", mockRestService);

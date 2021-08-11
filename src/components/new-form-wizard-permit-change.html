@@ -1,0 +1,12 @@
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first">
+  <!-- <pre>{{$ctrl.forms | json}}</pre> -->
+  <wizard-form-list list="$ctrl.forms" on-click-item="$ctrl.startForm" is-loading="$ctrl.isLoading">
+    <heading>
+      {{$ctrl.forms.length}} permit change forms available <span ng-if="$ctrl.site"> for
+        <strong>{{$ctrl.site.siteName}}</strong></span></h2>
+    </heading>
+    <none-found-msg>
+      No permit change forms available for <strong>{{$ctrl.site.siteName}}</strong>
+    </none-found-msg>
+  </wizard-form-list>
+</div>

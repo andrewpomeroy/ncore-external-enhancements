@@ -10,8 +10,8 @@ export default {
   controller: Controller,
 };
 
-Controller.$inject = ["$scope", "$state", "$stateParams", "$mdDialog"];
-function Controller($scope, $state, $stateParams, $mdDialog) {
+Controller.$inject = ["$stateParams"];
+function Controller($stateParams) {
   const $ctrl = this;
 
   Object.defineProperties($ctrl, {

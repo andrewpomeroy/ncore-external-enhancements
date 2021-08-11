@@ -1,4 +1,5 @@
 import permitApplicationForms from "./permitApplicationForms";
+import permitChangeForms from "./permitChangeForms";
 
 const sites = [
   {
@@ -13,10 +14,19 @@ const sites = [
     id: "-3464576457",
     siteCategoryDescription: "Site",
     siteId: "-23465346457",
-    siteName: "Site with NO PERMIT APPS AVAILABLE",
+    siteName: "Site with NO ELIGIBLE PERMIT APPLICATIONS",
     siteNumber: "11777444",
     userId: "8285620348187282972",
     permitApplicationForms: [],
+  },
+  {
+    id: "-3465554576457",
+    siteCategoryDescription: "Site",
+    siteId: "-2346555346457",
+    siteName: "Site with NO PERMIT CHANGE FORMS",
+    siteNumber: "1177557444",
+    userId: "828562034558187282972",
+    permitChangeForms: [],
   },
   {
     id: "-5166687662054990675",
@@ -144,6 +154,9 @@ sites.forEach((site) => {
   if (!site.permitApplicationForms) {
     site.permitApplicationForms = permitApplicationForms;
   }
+  // if (!site.permitChangeForms) {
+  //   site.permitChangeForms = permitChangeForms;
+  // }
 });
 
 export default sites;

@@ -2,9 +2,9 @@ import themeConfig from "./themeConfig";
 import sites from "./sites";
 import user from "./user";
 
-controller.$inject = ["$scope"];
+controller.$inject = ["$scope", "$stateParams"];
 
-function controller($scope) {
+function controller($scope, $stateParams) {
   $scope.$watch("isInternal", function (newValue, oldValue) {
     if (newValue) {
       $scope.selectedSite = null;
@@ -36,6 +36,9 @@ function controller($scope) {
     if (newValue !== null) {
       _selectedSite = newValue;
     }
+    // if (newValue !== oldValue) {
+    //   console.log($stateParams);
+    // }
   });
 
   $scope.agencyName = "egle";

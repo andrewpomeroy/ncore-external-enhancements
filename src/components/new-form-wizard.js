@@ -15,7 +15,7 @@ Controller.$inject = ["$scope", "$state", "$mdDialog"];
 function Controller($scope, $state, $mdDialog) {
   const $ctrl = this;
 
-  $ctrl.selectSite = (event) => {
+  $ctrl.selectSiteAndNavigateTo = function (sref, event) {
     // Don't prompt for site selection if there's already a site selected in the site-menu
     // Except when in single-site mode (otherwise there's no way to create a new site w/ an application)
     if (!$ctrl.newFormWizardContext.selectedSite || $ctrl.newFormWizardContext.sites.length === 1) {
@@ -25,16 +25,16 @@ function Controller($scope, $state, $mdDialog) {
         $ctrl.newFormWizardContext.sites
       )(event).then(
         function (siteId) {
-          $state.go(".newPermit", { siteId: siteId });
+          $state.go(sref, { siteId: siteId });
         },
-        function (cancelVal) {
-          console.log(cancelVal);
-        }
+        function (cancelVal) {}
       );
     } else {
-      $state.go(".newPermit", { siteId: $ctrl.newFormWizardContext.selectedSite.siteId });
+      $state.go(sref, { siteId: $ctrl.newFormWizardContext.selectedSite.siteId });
     }
   };
+
+  $ctrl.selectSite = (event) => {};
 
   $ctrl.$onInit = () => {
     $ctrl.currentState = "landing";

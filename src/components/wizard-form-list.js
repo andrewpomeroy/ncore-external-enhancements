@@ -5,6 +5,7 @@ export default {
   bindings: {
     list: "<",
     onClickItem: "<",
+    isLoading: "<",
   },
   template: template,
   controller: Controller,

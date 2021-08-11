@@ -1,4 +1,7 @@
-<div class="WelcomeScreenBlock WelcomeScreenBlock--first">
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="$ctrl.isLoading">
+  <h2 class="WelcomeHeading3">Loading...</h2>
+</div>
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.isLoading && $ctrl.list.length">
   <div class="split-block-heading">
     <div class="split-block left">
       <div class="split-block-element">
@@ -36,6 +39,6 @@
     No forms found matching "<em>{{$ctrl.filter}}</em>"
   </div>
 </div>
-<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.list.length">
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.list.length && !$ctrl.isLoading">
   <div class="well" ng-transclude="noneFoundMsg">None found</div>
 </div>
