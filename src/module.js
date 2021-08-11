@@ -22,12 +22,14 @@ angular.module("app", ["ui.router", "ngAnimate", "ngAria", "ngMaterial"]).contro
 
 angular.module("app").config([
   "$locationProvider",
-  function ($locationProvider) {
-    // $locationProvider.hashPrefix('!');
+  "$urlRouterProvider",
+  function ($locationProvider, $urlRouterProvider) {
+    // $locationProvider.hashPrefix("!");
     $locationProvider.html5Mode({
       enabled: true,
       requireBase: true,
     });
+    // $urlRouterProvider.otherwise("/");
   },
 ]);
 
