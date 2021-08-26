@@ -58,6 +58,17 @@ angular.module("app").config([
               '<input type="checkbox" ng-model="isInternal" />' +
               "Internal User" +
               "</label>" +
+              // '<label class="control-label">' +
+              // '<input type="checkbox" ng-model="hasComplaintForm" />' +
+              // "Has complaint form" +
+              // "</label>" +
+              "<label class='control-label'>Incident form examples</label>" +
+              '<select class="form-control" ng-model="selectedIncidentFormExampleTypes">' +
+              '<option value="">None</option>' +
+              "<option value=\"['garbage']\">Garbage Burning</option>" +
+              "<option value=\"['fishKill']\">Fish Kill</option>" +
+              "<option value=\"['garbage', 'fishKill']\">Garbage Burning & Fish Kill</option>" +
+              "</select>" +
               '<div ng-if="!isInternal">' +
               "<label class='control-label'>Site count</label>" +
               '<select class="form-control" ng-model="$parent.siteCount">' +
@@ -67,9 +78,6 @@ angular.module("app").config([
               '<option value="many" selected>Many</option>' +
               "</select>" +
               "</div>" +
-              // '<div>' +
-              // '{{selectedSite}}' +
-              // '</div>' +
               "<div>" +
               "<label class='control-label'>Site</label>" +
               '<select class="form-control" ng-if="sites.length" ng-model="$parent.selectedSite">' +
@@ -78,7 +86,7 @@ angular.module("app").config([
               "</select>" +
               "</div>" +
               "</div>" +
-              '<new-form-wizard-context sites="sites" selected-site="selectedSite">' +
+              '<new-form-wizard-context sites="sites" selected-site="selectedSite" incident-form-examples="incidentFormExamples">' +
               "<div ui-view='startNewFormContent'></div>" +
               "</new-form-wizard-context>",
             controller: "WelcomeController",
