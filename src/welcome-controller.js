@@ -41,8 +41,27 @@ function controller($scope, $stateParams) {
     // }
   });
 
+  var incidentFormExampleTypes = {
+    garbage: {
+      displayName: "Garbage Burning",
+    },
+    fishKill: {
+      displayName: "Fish Kill",
+    },
+  };
+
+  $scope.$watch("selectedIncidentFormExampleTypes", function (newValue, oldValue) {
+    console.log(newValue);
+    if (newValue || !newValue.length) {
+      $scope.incidentFormExamples = null;
+    }
+    $scope.incidentFormExamples = Array.from(eval(newValue).map((key) => incidentFormExampleTypes[key].displayName));
+  });
+
   $scope.agencyName = "egle";
   $scope.siteCount = "many";
+  $scope.hasComplaintForm = true;
+  $scope.selectedIncidentFormExampleTypes = ["garbage", "fishKill"];
   $scope.selectedSite = null;
   var _siteCount = $scope.siteCount;
   var _selectedSite = $scope.selectedSite;
