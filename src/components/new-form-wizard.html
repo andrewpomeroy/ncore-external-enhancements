@@ -8,7 +8,7 @@
       <div class="WelcomeScreenActionBlock-splitH">
         <div class="WelcomeScreenActionBlock-titleBlock">
           <div class="WelcomeScreenActionBlock-title">
-            <em>I want to apply for a <strong>new permit</strong></em>
+            <em>I want to apply for a <strong>new {{$ctrl.newFormWizardContext.hasLicenses ? "permit or license" : "permit"}}</strong></em>
           </div>
           <!-- <div class="WelcomeScreenActionBlock-subtitle">
               Permit application forms
@@ -44,8 +44,7 @@
         <div class="WelcomeScreenActionBlock-titleBlock">
           <div class="WelcomeScreenActionBlock-title">
             <em
-              >I want to renew or modify an
-              <strong>existing permit, registration, or license</strong></em
+              >I want to renew or modify an <strong>existing {{$ctrl.newFormWizardContext.hasLicenses ? "permit or license" : "permit"}}</strong></em
             >
           </div>
           <!-- <div class="WelcomeScreenActionBlock-subtitle">
@@ -152,10 +151,10 @@
         <div class="WelcomeScreenActionBlock-titleBlock">
           <div class="WelcomeScreenActionBlock-title">
             <span ng-if="$ctrl.newFormWizardContext.incidentFormExamples.length === 1">
-              <em>I want to <strong>file a complaint</strong>, or <strong>report a {{$ctrl.newFormWizardContext.incidentFormExamples[0]}} incident</strong></em>
+              <em>I want to file a <strong>complaint</strong>, or report a <strong>{{$ctrl.newFormWizardContext.incidentFormExamples[0]}} incident</strong></em>
             </span>
             <span ng-if="$ctrl.newFormWizardContext.incidentFormExamples.length !== 1">
-              <em>I want to <strong>file a complaint</strong>, or <strong>report an incident</strong></em>
+              <em>I want to file a <strong>complaint</strong>, or report an <strong>incident</strong></em>
             </span>
           </div>
           <div class="WelcomeScreenActionBlock-subtitle" ng-if="$ctrl.newFormWizardContext.incidentFormExamples.length > 1">
@@ -178,7 +177,7 @@
       <div class="WelcomeScreenActionBlock-splitH">
         <div class="WelcomeScreenActionBlock-titleBlock">
           <div class="WelcomeScreenActionBlock-title">
-            <em>I'm not sure</em>
+            <em><strong>I'm not sure</strong></em>
           </div>
           <div class="WelcomeScreenActionBlock-subtitle">Search all forms</div>
         </div>

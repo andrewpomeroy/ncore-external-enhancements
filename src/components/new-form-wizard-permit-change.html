@@ -1,15 +1,15 @@
 <div class="WelcomeScreenBlock WelcomeScreenBlock--first">
   <wizard-form-list list="$ctrl.permits" on-click-item="$ctrl.selectPermit" is-loading="$ctrl.isLoading">
     <heading>
-      {{$ctrl.permits.length}} permits<span ng-if="$ctrl.site"> associated with
+      {{$ctrl.permits.length}} {{$ctrl.newFormWizardContext.hasLicenses ? "permits/licenses" : "permits"}}<span ng-if="$ctrl.site"> associated with
         <strong>{{$ctrl.site.siteName}}</strong></span></h2>
     </heading>
     <none-found-msg>
       <div ng-if="$ctrl.site">
-          No permits associated with <strong>{{$ctrl.site.siteName}}</strong>
+          No {{$ctrl.newFormWizardContext.hasLicenses ? "permits/licenses" : "permits"}} associated with <strong>{{$ctrl.site.siteName}}</strong>
       </div>
       <div ng-if="!$ctrl.site">
-          There are no permits assocaited with this account.
+          There are no {{$ctrl.newFormWizardContext.hasLicenses ? "permits/licenses" : "permits"}} assocaited with this account.
       </div>
     </none-found-msg>
   </wizard-form-list>

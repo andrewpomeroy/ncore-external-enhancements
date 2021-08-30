@@ -106,7 +106,7 @@ angular.module("app").config([
         name: "startNewForm.newPermit",
         url: "/new-permit?siteId",
         newFormWizardData: {
-          title: "Apply for a New Permit/Registration",
+          title: 'Apply for a New {{$ctrl.newFormWizardContext.hasLicenses ? "Permit or License" : "Permit"}}',
         },
         views: {
           "startNewFormMain@startNewForm": {

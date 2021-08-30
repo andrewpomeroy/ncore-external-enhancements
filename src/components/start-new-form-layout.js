@@ -10,8 +10,13 @@ export default {
   controller: controller,
 };
 
-function controller() {
+controller.$inject = ["$scope", "$interpolate"];
+function controller($scope, $interpolate) {
   var $ctrl = this;
+
+  $ctrl.interpolate = function (str) {
+    return $interpolate(str)($scope);
+  };
 
   this.$postLink = function () {};
 }

@@ -42,7 +42,7 @@
               align-items="center"
             >
               <a class="Breadcrumb-link" ui-sref="{{item.sref}}"
-                >{{item.title}}</a
+                >{{$ctrl.interpolate(item.title)}}</a
               >
               <span class="Breadcrumb-chevron">
                 <svg
@@ -67,7 +67,7 @@
             </div>
           </div>
           <h1 class="WelcomeHeading1">
-            {{$ctrl.newFormWizardContext.currentTitle || "no title"}}
+            {{$ctrl.interpolate($ctrl.newFormWizardContext.currentTitle) || "no title"}}
           </h1>
         </div>
       </div>

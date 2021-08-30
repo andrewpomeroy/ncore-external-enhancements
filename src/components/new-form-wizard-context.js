@@ -3,6 +3,7 @@ export default {
     sites: "<",
     selectedSite: "<",
     hasComplaintForm: "<",
+    hasLicenses: "<",
     incidentFormExamples: "<",
     // themeConfig: '<',
     // multipleSiteCategories: '<'
