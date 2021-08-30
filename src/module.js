@@ -95,7 +95,7 @@ angular.module("app").config([
         name: "startNewForm.newPermit",
         url: "/new-permit?siteId",
         newFormWizardData: {
-          title: "Apply for a New Permit",
+          title: "Apply for a New Permit/Registration",
         },
         views: {
           "startNewFormMain@startNewForm": {
@@ -107,7 +107,7 @@ angular.module("app").config([
         name: "startNewForm.permitChangeForms",
         url: "/permit-change-forms?siteId",
         newFormWizardData: {
-          title: "Permit Change Forms — Select Permit",
+          title: "Change Request Forms – Select a Permit/Registration/License",
         },
         views: {
           "startNewFormMain@startNewForm": {
@@ -119,7 +119,7 @@ angular.module("app").config([
         name: "startNewForm.permitChangeForms.selectForm",
         url: "/select-form?permitId",
         newFormWizardData: {
-          title: "Select a Permit Change Form",
+          title: "Select a Change Form",
         },
         views: {
           "startNewFormMain@startNewForm": {
