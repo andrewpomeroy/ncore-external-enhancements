@@ -20,9 +20,19 @@ function NewFormWizardContextController($transitions, $state) {
     $state.go($ctrl.backSref || ".");
   };
 
+  // Recursively look up tree to find the next available upward state, so that the
+  // Back button will skip up the tree past non-viable "container" states
+  function getNextViableParentState(state) {
+    var parentState = state.parent;
+    if (!parentState) return undefined;
+    if (parentState.newFormWizardData) return parentState;
+    return getNextViableParentState(parentState);
+  }
+
   function updateNavigationContext() {
     $ctrl.currentTitle = $state.current.newFormWizardData && $state.current.newFormWizardData.title;
-    $ctrl.backSref = $state.$current.parent && $state.$current.parent.name;
+    var nextViableParentState = getNextViableParentState($state.$current);
+    $ctrl.backSref = nextViableParentState && nextViableParentState.name;
 
     var breadcrumbItems = [];
 
