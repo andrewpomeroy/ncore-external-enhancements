@@ -144,8 +144,8 @@
       </div>
     </li>
     <li class="WelcomeScreenActionBlock WelcomeScreenActionBlock--small"
-      ng-click="$ctrl.selectSiteAndNavigateTo('.newPermit', $event)"
-      ng-if="$ctrl.newFormWizardContext.shouldShowComplaintIncidentForms()"
+      ng-click=""
+      ng-if="$ctrl.newFormWizardContext.shouldShowComplaintIncidentForms"
       >
       <div class="WelcomeScreenActionBlock-splitH">
         <div class="WelcomeScreenActionBlock-titleBlock">
@@ -158,7 +158,7 @@
             </span>
           </div>
           <div class="WelcomeScreenActionBlock-subtitle" ng-if="$ctrl.newFormWizardContext.incidentFormExamples.length > 1">
-            Including {{$ctrl.newFormWizardContext.getFormattedIncidentFormExamples()}} incidents
+            Including {{$ctrl.newFormWizardContext.formattedIncidentFormExamples}} incidents
           </div>
             
           <!-- <div class="WelcomeScreenActionBlock-subtitle">

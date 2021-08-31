@@ -42,16 +42,19 @@ function NewFormWizardContextController($transitions, $state) {
     $ctrl.breadcrumbItems = $state.$current.parent ? crawlBreadcrumbParentTitles($state.$current.parent) : [];
   }
 
-  $ctrl.displayMultipleIncidentFormExamples = function () {
-    return $ctrl.incidentFormExamples && $ctrl.incidentFormExamples.length > 1;
-  };
-  $ctrl.getFormattedIncidentFormExamples = function () {
-    if (!$ctrl.incidentFormExamples || !$ctrl.incidentFormExamples.length) return;
-    return $ctrl.incidentFormExamples.join(", ");
-  };
-  $ctrl.shouldShowComplaintIncidentForms = function () {
-    return $ctrl.incidentFormExamples && $ctrl.incidentFormExamples.length;
-  };
+  Object.defineProperties($ctrl, {
+    formattedIncidentFormExamples: {
+      get: function formattedIncidentFormExamples() {
+        if (!$ctrl.incidentFormExamples || !$ctrl.incidentFormExamples.length) return null;
+        return $ctrl.incidentFormExamples.join(", ");
+      },
+    },
+    shouldShowComplaintIncidentForms: {
+      get: function shouldShowComplaintIncidentForms() {
+        return $ctrl.incidentFormExamples && $ctrl.incidentFormExamples.length;
+      },
+    },
+  });
 
   $transitions.onSuccess({}, function (transition) {
     updateNavigationContext();
