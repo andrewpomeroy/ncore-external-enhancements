@@ -68,10 +68,10 @@ angular.module("app").config([
                 </label>
                 <label class='control-label'>Incident form examples</label>
                 <select class="form-control" ng-model="selectedIncidentFormExampleTypes">
-                  <option value="">None</option>
-                  <option value="['garbage']">Garbage Burning</option>
-                  <option value="['fishKill']">Fish Kill</option>
-                  <option value="['garbage', 'fishKill']">Garbage Burning & Fish Kill</option>
+                  <option value="[]">No incident forms, just complaint form</option>
+                  <option value="['garbage']">Incident forms: Garbage Burning</option>
+                  <option value="['fishKill']">Incident forms: Fish Kill</option>
+                  <option value="['garbage', 'fishKill']">Incident forms: Garbage Burning & Fish Kill</option>
                 </select>
                 <div ng-if="!isInternal">
                   <label class='control-label'>Site count</label>

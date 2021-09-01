@@ -60,11 +60,11 @@ function NewFormWizardContextController($transitions, $state) {
         return $ctrl.incidentFormExamples.join(", ");
       },
     },
-    shouldShowComplaintIncidentForms: {
-      get: function shouldShowComplaintIncidentForms() {
-        return $ctrl.incidentFormExamples && $ctrl.incidentFormExamples.length;
-      },
-    },
+    // shouldShowComplaintIncidentForms: {
+    //   get: function shouldShowComplaintIncidentForms() {
+    //     return $ctrl.incidentFormExamples && $ctrl.incidentFormExamples.length;
+    //   },
+    // },
   });
 
   $transitions.onSuccess({}, function (transition) {

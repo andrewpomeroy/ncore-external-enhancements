@@ -7,12 +7,12 @@
     >
       <div class="WelcomeScreenActionBlock-splitH">
         <div class="WelcomeScreenActionBlock-titleBlock">
+          <!-- TODO: This logic is too simplistic, probably, to handle the
+          different permutations of names of permits, licenses, registrations,
+          and so on, so you'll have to extrapolate from this. -->
           <div class="WelcomeScreenActionBlock-title">
             <em>I want to apply for a <strong>new {{$ctrl.newFormWizardContext.hasLicenses ? "permit or license" : "permit"}}</strong></em>
           </div>
-          <!-- <div class="WelcomeScreenActionBlock-subtitle">
-              Permit application forms
-            </div> -->
         </div>
         <div class="WelcomeScreenActionBlock-chevron">
           <svg
@@ -146,15 +146,21 @@
     </li>
     <li class="WelcomeScreenActionBlock WelcomeScreenActionBlock--small"
       ng-click=""
-      ng-if="$ctrl.newFormWizardContext.shouldShowComplaintIncidentForms"
       >
       <div class="WelcomeScreenActionBlock-splitH">
         <div class="WelcomeScreenActionBlock-titleBlock">
           <div class="WelcomeScreenActionBlock-title">
+            <!-- TODO: This logic is too simplistic, probably, to handle the
+            different permutations of the presence of different types of
+            complaint and/or incident forms, but it's here as an example to get
+            you the gist of how it would work. -->
             <span ng-if="$ctrl.newFormWizardContext.incidentFormExamples.length === 1">
               <em>I want to file a <strong>complaint</strong>, or report a <strong>{{$ctrl.newFormWizardContext.incidentFormExamples[0]}} incident</strong></em>
             </span>
-            <span ng-if="$ctrl.newFormWizardContext.incidentFormExamples.length !== 1">
+            <span ng-if="$ctrl.newFormWizardContext.incidentFormExamples.length > 1">
+              <em>I want to file a <strong>complaint</strong>, or report an <strong>incident</strong></em>
+            </span>
+            <span ng-if="$ctrl.newFormWizardContext.incidentFormExamples.length === 0">
               <em>I want to file a <strong>complaint</strong>, or report an <strong>incident</strong></em>
             </span>
           </div>
