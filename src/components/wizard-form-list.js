@@ -4,7 +4,7 @@ import template from "./wizard-form-list.html";
 export default {
   bindings: {
     list: "<",
-    onClickItem: "<",
+    onClickItem: "&",
     isLoading: "<",
   },
   template: template,

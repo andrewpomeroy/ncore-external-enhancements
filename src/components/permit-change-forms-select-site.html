@@ -1,0 +1,28 @@
+
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.isLoading && !$ctrl.sitesWithAvailableForms.length">
+  <div class="well">No sites associated with your account have any available permit change forms.</div>
+</div>
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.isLoading && $ctrl.sitesWithAvailableForms.length">
+  <!-- <li class="WelcomeScreenActionBlock WelcomeScreenActionBlock--xsmall WelcomeScreenActionBlock--noMaxHeight"
+    role="button" tabindex="0" ng-click="$ctrl.onClickItem(item)">
+    <div class="WelcomeScreenActionBlock-splitH">
+      <div class="WelcomeScreenActionBlock-titleBlock">
+        <div class="WelcomeScreenActionBlock-title">aaaaaaaaaaaaaaaa</div>
+        <div class="WelcomeScreenActionBlock-subtitle">oh noooooooooooooooooooooooooo</div>
+      </div>
+      <wizard-action-block-chevron></wizard-action-block-chevron>
+    </div>
+  </li> -->
+  <wizard-action-block on-click="$ctrl.selectAllSites()" no-max-height="true" size="medium">
+    <heading>Browse all permits</heading>
+    <subheading>Show permits from all {{$ctrl.sitesWithAvailableForms.length}} sites with available permit change forms</subheading>
+  </wizard-action-block>
+</div>
+<div class="WelcomeScreenBlock" ng-if="!$ctrl.isLoading && $ctrl.sitesWithAvailableForms.length">
+  <!-- <pre>{{$ctrl.forms | json}}</pre> -->
+  <wizard-form-list list="$ctrl.sitesWithAvailableForms" on-click-item="$ctrl.selectSite(item)">
+    <heading>
+      Or, browse permits <strong>by site</strong>:
+    </heading>
+  </wizard-form-list>
+</div>

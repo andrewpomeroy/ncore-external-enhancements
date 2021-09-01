@@ -2,7 +2,7 @@ import angular from "angular";
 import mockRestService from "../mockRestService";
 import permitChangeForms from "../permitChangeForms";
 import permits from "../permits";
-import template from "./new-form-wizard-permit-change-select-form.html";
+import template from "./permit-change-forms-select-form.html";
 
 export default {
   bindings: {},

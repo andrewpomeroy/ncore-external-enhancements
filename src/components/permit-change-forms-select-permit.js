@@ -1,6 +1,6 @@
 import permitChangeForms from "../permitChangeForms";
 import permits from "../permits";
-import template from "./new-form-wizard-permit-change.html";
+import template from "./permit-change-forms-select-permit.html";
 
 export default {
   bindings: {},
@@ -29,16 +29,24 @@ function PermitChangeFormsCtrl($scope, $state, $stateParams, mockRestService) {
     },
   });
 
-  $ctrl.selectPermit = function (permit) {
-    console.log(permit);
-    console.log(permit.id);
-    $state.go(".selectForm", { permitId: permit.id });
+  $ctrl.selectPermit = function (permitId) {
+    console.log(permitId);
+    // console.log(permit);
+    // console.log(permit.id);
+    // $state.go(".selectForm", { permitId: permit.id });
   };
+
+  // Don't add site name if there's a site selected (no need to differentiate), or if no site matches the permit
+  function formatPermitTitle(permit) {
+    if ($ctrl.site) return permit.permitType;
+    var site = $ctrl.newFormWizardContext.sites.find((site) => site.siteId === permit.siteId);
+    console.log(site);
+    return site ? site.siteName + " – " + permit.permitType : permit.permitType;
+  }
 
   $ctrl.$onInit = function () {
     $ctrl.isLoading = true;
     mockRestService.getWithDelay(permits).then(function (result) {
-      console.log($ctrl.site.permits);
       $ctrl.permits = result
         .filter(function (permit) {
           // Don't filter by site if no site selected
@@ -46,11 +54,12 @@ function PermitChangeFormsCtrl($scope, $state, $stateParams, mockRestService) {
         })
         .map(function (permit) {
           return {
-            name: permit.permitType,
+            name: formatPermitTitle(permit),
             description: permit.permitNumber,
             id: permit.id,
           };
         });
+      console.log($ctrl.permits);
       $ctrl.isLoading = false;
     });
   };

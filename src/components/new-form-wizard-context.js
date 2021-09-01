@@ -5,6 +5,7 @@ export default {
     hasComplaintForm: "<",
     hasLicenses: "<",
     incidentFormExamples: "<",
+    isInternalUser: "<",
     // themeConfig: '<',
     // multipleSiteCategories: '<'
   },

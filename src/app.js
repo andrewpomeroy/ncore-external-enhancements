@@ -9,9 +9,13 @@ import startNewFormLayout from "./components/start-new-form-layout";
 import newFormWizardContext from "./components/new-form-wizard-context";
 import newFormWizard from "./components/new-form-wizard";
 import newFormWizardNewPermit from "./components/new-form-wizard-new-permit";
-import newFormWizardPermitChange from "./components/new-form-wizard-permit-change";
-import newFormWizardPermitChangeSelectForm from "./components/new-form-wizard-permit-change-select-form";
+import permitChangeForms from "./components/permit-change-forms";
+import permitChangeFormsSelectPermit from "./components/permit-change-forms-select-permit";
+import permitChangeFormsSelectForm from "./components/permit-change-forms-select-form";
+import permitChangeFormsSelectSite from "./components/permit-change-forms-select-site";
 import wizardFormList from "./components/wizard-form-list";
+import wizardActionBlock from "./components/wizard-action-block";
+import wizardActionBlockChevron from "./components/wizard-action-block-chevron";
 
 import mockRestService from "./mockRestService";
 
@@ -86,7 +90,7 @@ angular.module("app").config([
                   </select>
                 </div>
               </div>
-              <new-form-wizard-context sites="sites" selected-site="selectedSite" has-licenses="hasLicenses" incident-form-examples="incidentFormExamples">
+              <new-form-wizard-context sites="sites" selected-site="selectedSite" has-licenses="hasLicenses" incident-form-examples="incidentFormExamples" is-internal-user="isInternal">
                 <div ui-view='startNewFormContent'></div>
               </new-form-wizard-context>`,
             controller: "MockController",
@@ -111,15 +115,39 @@ angular.module("app").config([
           },
         },
       },
+      // This route is a gateway, its component `permit-change-forms`
+      // encapsulates logic that redirects the user based on the state of their
+      // profile and current site selection
       {
         name: "startNewForm.permitChangeForms",
-        url: "/permit-change-forms?siteId",
+        url: "/permit-change-forms",
+        views: {
+          "startNewFormMain@startNewForm": {
+            template: "<permit-change-forms></permit-change-forms>",
+          },
+        },
+      },
+      {
+        name: "startNewForm.permitChangeForms.selectSite",
+        url: "/select-site",
+        newFormWizardData: {
+          title: "Permit Change Forms",
+        },
+        views: {
+          "startNewFormMain@startNewForm": {
+            template: "<permit-change-forms-select-site></permit-change-forms-select-site>",
+          },
+        },
+      },
+      {
+        name: "startNewForm.permitChangeForms.selectPermit",
+        url: "/select-permit?siteId",
         newFormWizardData: {
           title: "Permit Change Forms — Select Permit",
         },
         views: {
           "startNewFormMain@startNewForm": {
-            template: "<new-form-wizard-permit-change></new-form-wizard-permit-change>",
+            template: "<permit-change-forms-select-permit></permit-change-forms-select-permit>",
           },
         },
       },
@@ -131,22 +159,10 @@ angular.module("app").config([
         },
         views: {
           "startNewFormMain@startNewForm": {
-            template: "<new-form-wizard-permit-change-select-form></new-form-wizard-permit-change-select-form>",
+            template: "<permit-change-forms-select-form></permit-change-forms-select-form>",
           },
         },
       },
-      // {
-      //   name: "startNewForm.newPermit.something",
-      //   url: "/something",
-      //   newFormWizardData: {
-      //     title: "Something",
-      //   },
-      //   views: {
-      //     "startNewFormMain@startNewForm": {
-      //       template: "<h3>hello</h3>",
-      //     },
-      //   },
-      // },
     ];
 
     startNewFormStates.forEach(function (state) {
@@ -159,8 +175,12 @@ angular.module("app").component("startNewFormLayout", startNewFormLayout);
 angular.module("app").component("newFormWizardContext", newFormWizardContext);
 angular.module("app").component("newFormWizard", newFormWizard);
 angular.module("app").component("newFormWizardNewPermit", newFormWizardNewPermit);
-angular.module("app").component("newFormWizardPermitChange", newFormWizardPermitChange);
-angular.module("app").component("newFormWizardPermitChangeSelectForm", newFormWizardPermitChangeSelectForm);
+angular.module("app").component("permitChangeForms", permitChangeForms);
+angular.module("app").component("permitChangeFormsSelectPermit", permitChangeFormsSelectPermit);
+angular.module("app").component("permitChangeFormsSelectForm", permitChangeFormsSelectForm);
+angular.module("app").component("permitChangeFormsSelectSite", permitChangeFormsSelectSite);
 angular.module("app").component("wizardFormList", wizardFormList);
+angular.module("app").component("wizardActionBlock", wizardActionBlock);
+angular.module("app").component("wizardActionBlockChevron", wizardActionBlockChevron);
 
 angular.module("app").factory("mockRestService", mockRestService);

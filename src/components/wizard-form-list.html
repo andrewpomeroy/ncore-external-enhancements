@@ -17,23 +17,14 @@
     </div>
   </div>
   <ul class="WelcomeScreenActionBlocks">
-    <li class="WelcomeScreenActionBlock WelcomeScreenActionBlock--xsmall WelcomeScreenActionBlock--noMaxHeight"
-      ng-repeat="item in $ctrl.filteredItems" role="button" tabindex="0" ng-click="$ctrl.onClickItem(item)">
-      <div class="WelcomeScreenActionBlock-splitH">
-        <div class="WelcomeScreenActionBlock-titleBlock">
-          <div class="WelcomeScreenActionBlock-title" ng-bind="item.name"></div>
-          <div class="WelcomeScreenActionBlock-subtitle" ng-bind="item.description"
-            ng-if="item.name !== item.description"></div>
-        </div>
-        <div class="WelcomeScreenActionBlock-chevron">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-            y="0px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-            <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"
-              points="6,2 12,8 6,14 " />
-          </svg>
-        </div>
-      </div>
-    </li>
+    <!-- yes, on-click has weird expression binding (&).. it's necessary here though, trust me, just go with it -->
+    <wizard-action-block
+      on-click="$ctrl.onClickItem({item: item})"
+      ng-repeat="item in $ctrl.filteredItems"
+      size="xsmall"1
+      no-max-height="true"
+      heading="{{item.name}}"
+      subheading="{{item.description}}"></wizard-action-block>
   </ul>
   <div class="well" ng-if="!$ctrl.filteredItems.length">
     No matches for "<em>{{$ctrl.filter}}</em>"

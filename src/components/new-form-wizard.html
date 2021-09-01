@@ -36,9 +36,10 @@
         </div>
       </div>
     </li>
+    <!-- TODO: Do not display this option when the selected site (or none of the users sites', when All is selected) has no available change forms -->
     <li
       class="WelcomeScreenActionBlock WelcomeScreenActionBlock--small"
-      ng-click="$ctrl.selectSiteAndNavigateTo('.permitChangeForms', $event)"
+      ui-sref=".permitChangeForms"
     >
       <div class="WelcomeScreenActionBlock-splitH">
         <div class="WelcomeScreenActionBlock-titleBlock">

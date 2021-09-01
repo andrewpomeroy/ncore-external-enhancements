@@ -15,6 +15,7 @@ function controller($scope, $interpolate) {
   var $ctrl = this;
 
   $ctrl.interpolate = function (str) {
+    if (!str) return null;
     return $interpolate(str)($scope);
   };
 
