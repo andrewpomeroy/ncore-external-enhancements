@@ -1,7 +1,4 @@
-import angular from "angular";
-import mockRestService from "../mockRestService";
 import permitChangeForms from "../permitChangeForms";
-import permits from "../permits";
 import template from "./permit-change-forms-select-site.html";
 
 export default {

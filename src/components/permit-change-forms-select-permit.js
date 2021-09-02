@@ -1,4 +1,3 @@
-import permitChangeForms from "../permitChangeForms";
 import permits from "../permits";
 import template from "./permit-change-forms-select-permit.html";
 
