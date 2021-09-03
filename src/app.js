@@ -18,6 +18,7 @@ import permitChangeFormsSelectSite from "./components/permit-change-forms-select
 import wizardFormList from "./components/wizard-form-list";
 import wizardActionBlock from "./components/wizard-action-block";
 import wizardActionBlockChevron from "./components/wizard-action-block-chevron";
+import wizardAllForms from "./components/wizard-all-forms";
 
 import mockRestService from "./mockRestService";
 
@@ -160,6 +161,18 @@ appModule.config([
         views: {
           "startNewFormMain@startNewForm": {
             template: "<permit-change-forms-select-form></permit-change-forms-select-form>",
+          },
+        },
+      },
+      {
+        name: "startNewForm.allForms",
+        url: "/all-forms",
+        newFormWizardData: {
+          title: "Search All Forms",
+        },
+        views: {
+          "startNewFormMain@startNewForm": {
+            template: "<wizard-all-forms></wizard-all-forms>",
           },
         },
       },

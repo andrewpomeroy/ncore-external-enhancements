@@ -1,5 +1,5 @@
 <div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="$ctrl.isLoading">
-  <h2 class="WelcomeHeading3">Loading...</h2>
+  <loading-spinner is-active="true" container-classes="spinner--halfSize"></loading-spinner>
 </div>
 <div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.isLoading && $ctrl.list.length">
   <div class="split-block-heading">

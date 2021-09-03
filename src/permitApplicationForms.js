@@ -305,6 +305,9 @@ const permitApplicationForms = [
     name: "Windsor Test nForm 4.9 - Mult Elec Sig (Resources)",
     description: "Enter the short description for the form here...",
   },
-];
+].map((form) => ({
+  ...form,
+  id: Math.floor(Math.random() * 100000000),
+}));
 
 export default permitApplicationForms;

@@ -1,0 +1,30 @@
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="$ctrl.isLoading">
+  <!-- TODO: For each instance of "Loading... we should use a -->
+  <!-- <h2 class="WelcomeHeading3">Loading...</h2> -->
+  <loading-spinner is-active="true" container-classes="spinner--halfSize"></loading-spinner>
+</div>
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.isLoading && $ctrl.formCollections.appForms.length">
+  <h2 class="WelcomeHeading3">Permit Application Forms ({{$ctrl.formCollections.appForms.length}})</h2>
+  <ul class="WelcomeScreenActionBlocks">
+    <wizard-action-block
+    on-click="$ctrl.select(item, 'appForms')"
+    ng-repeat="item in $ctrl.formCollections.appForms"
+    size="xsmall"
+    no-max-height="true"
+    heading="{{item.name}}"
+    subheading="{{item.description}}"></wizard-action-block>
+  </ul>
+</div>
+<div class="WelcomeScreenBlock WelcomeScreenBlock" ng-if="!$ctrl.isLoading && $ctrl.formCollections.changeForms.length">
+  <h2 class="WelcomeHeading3">Permit Change Forms ({{$ctrl.formCollections.changeForms.length}})</h2>
+  <ul class="WelcomeScreenActionBlocks">
+    <wizard-action-block on-click="$ctrl.select(item, 'changeForms')" ng-repeat="item in $ctrl.formCollections.changeForms"
+      size="xsmall" no-max-height="true" heading="{{item.formName}}" subheading="{{item.description}}"></wizard-action-block>
+  </ul>
+
+  <!-- <wizard-form-list list="$ctrl.formCollections.changeForms" on-click-item="$ctrl.selectItem(item, $ctrl.formCollections.changeForms)">
+    <heading>
+      Permit Change Forms
+    </heading>
+  </wizard-form-list> -->
+</div>
