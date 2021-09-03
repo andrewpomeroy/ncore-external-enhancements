@@ -5,9 +5,9 @@ import sites from "./sites";
 // mock user object
 import user from "./user";
 
-controller.$inject = ["$scope", "$stateParams"];
+controller.$inject = ["$scope", "$stateParams", "$timeout"];
 
-function controller($scope, $stateParams) {
+function controller($scope, $stateParams, $timeout) {
   // Example of a client-specific registry of form types under the "incident types" umbrella, that would probably come from app config
   var incidentFormExampleTypes = {
     garbage: {
@@ -22,12 +22,17 @@ function controller($scope, $stateParams) {
 
   $scope.$watch("isInternal", function (newValue, oldValue) {
     if (newValue) {
-      $scope.selectedSite = null;
-      $scope.siteCount = "many";
+      $timeout(() => {
+        $scope.selectedSite = null;
+        $scope.siteCount = "many";
+        if (!$scope.selectedSite) $scope.selectedSite = $scope.sites[0];
+      });
     } else {
       // recall stored previous selections made prior to these controls being disabled
-      $scope.selectedSite = _selectedSite;
-      $scope.siteCount = _siteCount;
+      $timeout(() => {
+        $scope.selectedSite = _selectedSite;
+        $scope.siteCount = _siteCount;
+      });
     }
   });
   $scope.$watch("siteCount", function (newValue, oldValue) {

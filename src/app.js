@@ -85,7 +85,7 @@ angular.module("app").config([
                 <div>
                   <label class='control-label'>Site</label>
                   <select class="form-control" ng-if="sites.length" ng-model="$parent.selectedSite">
-                    <option value="">(All)</option>
+                    <option value="" ng-if="!isInternal">(All)</option>
                     <option ng-repeat="site in sites" ng-value="site">{{site.siteName}}</option>
                   </select>
                 </div>
