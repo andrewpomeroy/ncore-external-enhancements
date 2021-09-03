@@ -3,7 +3,9 @@ import "angular-animate";
 import "angular-material";
 import "@uirouter/angularjs";
 
-import MockController from "./mock-controller.js";
+import appModule from "./appRun";
+// TODO: delete this, this is just backported from the nCORE repo
+import "./components/loading-spinner.js";
 
 import startNewFormLayout from "./components/start-new-form-layout";
 import newFormWizardContext from "./components/new-form-wizard-context";
@@ -19,9 +21,7 @@ import wizardActionBlockChevron from "./components/wizard-action-block-chevron";
 
 import mockRestService from "./mockRestService";
 
-angular.module("app", ["ui.router", "ngAnimate", "ngAria", "ngMaterial"]).controller("MockController", MockController);
-
-angular.module("app").config([
+appModule.config([
   "$locationProvider",
   "$urlRouterProvider",
   function ($locationProvider, $urlRouterProvider) {
@@ -34,7 +34,7 @@ angular.module("app").config([
   },
 ]);
 
-angular.module("app").config([
+appModule.config([
   "$stateProvider",
   function ($stateProvider) {
     $stateProvider.state({
@@ -171,16 +171,17 @@ angular.module("app").config([
   },
 ]);
 
-angular.module("app").component("startNewFormLayout", startNewFormLayout);
-angular.module("app").component("newFormWizardContext", newFormWizardContext);
-angular.module("app").component("newFormWizard", newFormWizard);
-angular.module("app").component("newFormWizardNewPermit", newFormWizardNewPermit);
-angular.module("app").component("permitChangeForms", permitChangeForms);
-angular.module("app").component("permitChangeFormsSelectPermit", permitChangeFormsSelectPermit);
-angular.module("app").component("permitChangeFormsSelectForm", permitChangeFormsSelectForm);
-angular.module("app").component("permitChangeFormsSelectSite", permitChangeFormsSelectSite);
-angular.module("app").component("wizardFormList", wizardFormList);
-angular.module("app").component("wizardActionBlock", wizardActionBlock);
-angular.module("app").component("wizardActionBlockChevron", wizardActionBlockChevron);
+appModule.component("startNewFormLayout", startNewFormLayout);
+appModule.component("newFormWizardContext", newFormWizardContext);
+appModule.component("newFormWizard", newFormWizard);
+appModule.component("newFormWizardNewPermit", newFormWizardNewPermit);
+appModule.component("permitChangeForms", permitChangeForms);
+appModule.component("permitChangeFormsSelectPermit", permitChangeFormsSelectPermit);
+appModule.component("permitChangeFormsSelectForm", permitChangeFormsSelectForm);
+appModule.component("permitChangeFormsSelectSite", permitChangeFormsSelectSite);
+appModule.component("wizardFormList", wizardFormList);
+appModule.component("wizardActionBlock", wizardActionBlock);
+appModule.component("wizardActionBlockChevron", wizardActionBlockChevron);
+appModule.component("wizardAllForms", wizardAllForms);
 
-angular.module("app").factory("mockRestService", mockRestService);
+appModule.factory("mockRestService", mockRestService);

@@ -1,4 +1,6 @@
-
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="$ctrl.isLoading">
+  <loading-spinner is-active="true" container-classes="spinner--halfSize"></loading-spinner>
+</div>
 <div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.isLoading && !$ctrl.sitesWithAvailableForms.length">
   <div class="well">No sites associated with your account have any available permit change forms.</div>
 </div>
