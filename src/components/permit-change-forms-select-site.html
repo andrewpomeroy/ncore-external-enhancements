@@ -22,9 +22,9 @@
 </div>
 <div class="WelcomeScreenBlock" ng-if="!$ctrl.isLoading && $ctrl.sitesWithAvailableForms.length">
   <!-- <pre>{{$ctrl.forms | json}}</pre> -->
-  <wizard-form-list list="$ctrl.sitesWithAvailableForms" on-click-item="$ctrl.selectSite(item)">
+  <wizard-action-block-list list="$ctrl.sitesWithAvailableForms" on-click-item="$ctrl.selectSite(item)">
     <heading>
       Or, browse permits <strong>by site</strong>:
     </heading>
-  </wizard-form-list>
+  </wizard-action-block-list>
 </div>

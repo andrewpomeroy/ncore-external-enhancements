@@ -1,5 +1,5 @@
 import angular from "angular";
-import template from "./wizard-form-list.html";
+import template from "./wizard-action-block-list.html";
 
 export default {
   bindings: {

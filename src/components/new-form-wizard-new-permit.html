@@ -1,5 +1,5 @@
 <div class="WelcomeScreenBlock WelcomeScreenBlock--first">
-  <wizard-form-list list="$ctrl.site.permitApplicationForms" on-click-item="$ctrl.startForm(item)">
+  <wizard-action-block-list list="$ctrl.site.permitApplicationForms" on-click-item="$ctrl.startForm(item)">
     <heading>
       {{$ctrl.site.permitApplicationForms.length}} {{$ctrl.newFormWizardContext.hasLicenses ? "permit/license" : "permit"}} application forms available <span ng-if="$ctrl.site"> for
         <strong>{{$ctrl.site.siteName}}</strong></span></h2>
@@ -7,5 +7,5 @@
     <none-found-msg>
       No {{$ctrl.newFormWizardContext.hasLicenses ? "permit/license" : "permit"}} application forms available for <strong>{{$ctrl.site.siteName}}</strong>
     </none-found-msg>
-  </wizard-form-list>
+  </wizard-action-block-list>
 </div>
