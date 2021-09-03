@@ -17,7 +17,7 @@
     </div>
   </div>
   <ul class="WelcomeScreenActionBlocks">
-    <!-- yes, on-click has weird expression binding (&).. it's necessary here though, trust me, just go with it -->
+    <!-- yes, on-click has weird expression binding (&) and this strange object as its argument.. it's necessary here though, trust me, just go with it -->
     <wizard-action-block
       on-click="$ctrl.onClickItem({item: item})"
       ng-repeat="item in $ctrl.filteredItems"

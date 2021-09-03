@@ -1,9 +1,27 @@
-<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="$ctrl.isLoading">
+<div class="WelcomeScreenBlock WelcomeScreenBlock--first">
+  <input type="text" class="form-control" ng-model="$ctrl.searchInput" placeholder="Search for forms" />
+</div>
+<div class="WelcomeScreenBlock" ng-if="$ctrl.isSearching">
   <!-- TODO: For each instance of "Loading... we should use a -->
   <!-- <h2 class="WelcomeHeading3">Loading...</h2> -->
-  <loading-spinner is-active="true" container-classes="spinner--halfSize"></loading-spinner>
+  <div style="position: relative">
+    <loading-spinner is-active="true" container-classes="spinner--halfSize"></loading-spinner>
+  </div>
 </div>
-<div class="WelcomeScreenBlock WelcomeScreenBlock--first" ng-if="!$ctrl.isLoading && $ctrl.formCollections.appForms.length">
+<div class="WelcomeScreenBlock" ng-if="!$ctrl.isSearching && collection.items.length" ng-repeat="collection in $ctrl.filteredCollections">
+  <h2 class="WelcomeHeading3">{{collection.displayName}} ({{collection.items.length}})</h2>
+  <ul class="WelcomeScreenActionBlocks">
+    <wizard-action-block on-click="$ctrl.select(item, 'appForms')" ng-repeat="item in collection.items"
+      size="xsmall" no-max-height="true" heading="{{item.name}}" subheading="{{item.description}}">
+    </wizard-action-block>
+  </ul>
+</div>
+<div class="WelcomeScreenBlock" ng-if="!$ctrl.isSearching && !$ctrl.totalMatches && $ctrl.hasSearched">
+  <div class="well">No matches for <em>{{$ctrl.searchInput}}</em></div>
+</div>
+
+
+<!-- <div class="WelcomeScreenBlock" ng-if="!$ctrl.isSearching && $ctrl.formCollections.appForms.length">
   <h2 class="WelcomeHeading3">Permit Application Forms ({{$ctrl.formCollections.appForms.length}})</h2>
   <ul class="WelcomeScreenActionBlocks">
     <wizard-action-block
@@ -15,10 +33,10 @@
     subheading="{{item.description}}"></wizard-action-block>
   </ul>
 </div>
-<div class="WelcomeScreenBlock WelcomeScreenBlock" ng-if="!$ctrl.isLoading && $ctrl.formCollections.changeForms.length">
+<div class="WelcomeScreenBlock WelcomeScreenBlock" ng-if="!$ctrl.isSearching && $ctrl.formCollections.changeForms.length">
   <h2 class="WelcomeHeading3">Permit Change Forms ({{$ctrl.formCollections.changeForms.length}})</h2>
   <ul class="WelcomeScreenActionBlocks">
     <wizard-action-block on-click="$ctrl.select(item, 'changeForms')" ng-repeat="item in $ctrl.formCollections.changeForms"
       size="xsmall" no-max-height="true" heading="{{item.formName}}" subheading="{{item.description}}"></wizard-action-block>
   </ul>
-</div>
+</div> -->
